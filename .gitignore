@@ -1,0 +1,25 @@
+# Archivos generados por Intellij
+.idea/
+
+# Archivos de compilacion java
+out/
+
+# Archivos varios
+N1-Elecciones-Java.iml
+
+# Archivos de log
+*.log
+
+# Archivos generados por BlueJ
+*.ctxt
+
+# Archivos generados por Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Paquetes de archivos generados
+*.jar
+*.war
+*.ear
+*.zip
+*.targ.gz
+*.rar
