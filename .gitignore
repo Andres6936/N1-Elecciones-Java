@@ -23,3 +23,7 @@ N1-Elecciones-Java.iml
 *.zip
 *.targ.gz
 *.rar
+
+# Archivos necesarios para compilar el Test
+!/test/lib/
+!/test/lib/junit-4.12.jar
