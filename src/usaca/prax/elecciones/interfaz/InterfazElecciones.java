@@ -79,19 +79,10 @@ public class InterfazElecciones extends JFrame
         {
             UIManager.setLookAndFeel( "javax.swing.plaf.nimbus.NimbusLookAndFeel" );
         }
-        catch ( ClassNotFoundException e )
-        {
-            e.printStackTrace( );
-        }
-        catch ( InstantiationException e )
-        {
-            e.printStackTrace( );
-        }
-        catch ( IllegalAccessException e )
-        {
-            e.printStackTrace( );
-        }
-        catch ( UnsupportedLookAndFeelException e )
+        catch ( ClassNotFoundException |
+                InstantiationException |
+                IllegalAccessException |
+                UnsupportedLookAndFeelException e )
         {
             e.printStackTrace( );
         }
@@ -108,15 +99,15 @@ public class InterfazElecciones extends JFrame
         panelCandidatos.setLayout( new GridLayout( 1, 3 ) );
         getContentPane( ).add( panelCandidatos, BorderLayout.CENTER );
 
-        ImageIcon iconO = new ImageIcon( "data/Francis.jpg" );
-        ImageIcon iconT = new ImageIcon( "data/Claire.jpg" );
-        ImageIcon iconH = new ImageIcon( "data/Obama.jpg" );
+        ImageIcon imageFrancis = new ImageIcon( "data/Francis.jpg" );
+        ImageIcon imageClaire = new ImageIcon( "data/Claire.jpg" );
+        ImageIcon imageObama = new ImageIcon( "data/Obama.jpg" );
 
-        panelCandidato1 = new PanelCandidato( this, urna.darCandidato1(), iconO );
+        panelCandidato1 = new PanelCandidato( this, urna.darCandidato1(), imageFrancis );
         panelCandidatos.add( panelCandidato1 );
-        panelCandidato2 = new PanelCandidato( this, urna.darCandidato2(), iconT );
+        panelCandidato2 = new PanelCandidato( this, urna.darCandidato2(), imageClaire );
         panelCandidatos.add( panelCandidato2 );
-        panelCandidato3 = new PanelCandidato( this, urna.darCandidato3(), iconH );
+        panelCandidato3 = new PanelCandidato( this, urna.darCandidato3(), imageObama );
         panelCandidatos.add( panelCandidato3 );
 
         JPanel panelInferior = new JPanel( );
