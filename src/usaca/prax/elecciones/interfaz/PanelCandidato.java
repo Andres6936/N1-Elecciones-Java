@@ -46,11 +46,6 @@ public class PanelCandidato extends JPanel implements ActionListener
     private InterfazElecciones principal;
 
     /**
-     * Número del candidato.
-     */
-    private int numCandidato;
-
-    /**
      * Candidato que representará el panel.
      */
     private Candidato candidato;
@@ -108,10 +103,9 @@ public class PanelCandidato extends JPanel implements ActionListener
      * @param laPrincipal Ventana principal. laPrincipal != null.
      * @param nCandidato Número del candidato.
      */
-    public PanelCandidato( InterfazElecciones laPrincipal, int numberCandidato, Candidato nCandidato )
+    public PanelCandidato( InterfazElecciones laPrincipal, Candidato nCandidato, ImageIcon icon )
     {
         principal = laPrincipal;
-        numCandidato = numberCandidato;
         candidato = nCandidato;
 
         // Botón actualizar datos
@@ -150,14 +144,14 @@ public class PanelCandidato extends JPanel implements ActionListener
         panelInformacion.setBackground( Color.WHITE );
 
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato" + numCandidato ) );
+        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato" + candidato.getNombre() ) );
         setBackground( Color.WHITE );
 
         add( panelImagen, java.awt.BorderLayout.CENTER );
         panelImagen.setLayout( new BorderLayout( ) );
         JLabel temp = new JLabel( );
         temp.setHorizontalAlignment( JLabel.CENTER );
-        temp.setIcon( new ImageIcon( "data/Candidato" + numCandidato + ".gif" ) );
+        temp.setIcon( icon );
 
         panelImagen.add( temp, BorderLayout.CENTER );
 

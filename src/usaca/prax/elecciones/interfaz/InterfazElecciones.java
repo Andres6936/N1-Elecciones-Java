@@ -107,11 +107,16 @@ public class InterfazElecciones extends JFrame
         JPanel panelCandidatos = new JPanel( );
         panelCandidatos.setLayout( new GridLayout( 1, 3 ) );
         getContentPane( ).add( panelCandidatos, BorderLayout.CENTER );
-        panelCandidato1 = new PanelCandidato( this, 1, urna.darCandidato1() );
+
+        ImageIcon iconO = new ImageIcon( "data/Candidato1.gif" );
+        ImageIcon iconT = new ImageIcon( "data/Candidato2.gif" );
+        ImageIcon iconH = new ImageIcon( "data/Candidato3.gif" );
+
+        panelCandidato1 = new PanelCandidato( this, urna.darCandidato1(), iconO );
         panelCandidatos.add( panelCandidato1 );
-        panelCandidato2 = new PanelCandidato( this, 2, urna.darCandidato2() );
+        panelCandidato2 = new PanelCandidato( this, urna.darCandidato2(), iconT );
         panelCandidatos.add( panelCandidato2 );
-        panelCandidato3 = new PanelCandidato( this, 3, urna.darCandidato3() );
+        panelCandidato3 = new PanelCandidato( this, urna.darCandidato3(), iconH );
         panelCandidatos.add( panelCandidato3 );
 
         JPanel panelInferior = new JPanel( );
