@@ -108,9 +108,9 @@ public class InterfazElecciones extends JFrame
         panelCandidatos.setLayout( new GridLayout( 1, 3 ) );
         getContentPane( ).add( panelCandidatos, BorderLayout.CENTER );
 
-        ImageIcon iconO = new ImageIcon( "data/Candidato1.gif" );
-        ImageIcon iconT = new ImageIcon( "data/Candidato2.gif" );
-        ImageIcon iconH = new ImageIcon( "data/Candidato3.gif" );
+        ImageIcon iconO = new ImageIcon( "data/Francis.jpg" );
+        ImageIcon iconT = new ImageIcon( "data/Claire.jpg" );
+        ImageIcon iconH = new ImageIcon( "data/Obama.jpg" );
 
         panelCandidato1 = new PanelCandidato( this, urna.darCandidato1(), iconO );
         panelCandidatos.add( panelCandidato1 );

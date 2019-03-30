@@ -26,8 +26,7 @@ public class CandidatoTest extends TestCase
      */
     private void setupEscenario1( )
     {
-        candidato = new Candidato( );
-        candidato.inicializar( "Felipe", "Pitti", "Independiente", 27 );
+        candidato = new Candidato( "Felipe", "Pitti", "Independiente", 27 );
     }
 
     /**
@@ -37,12 +36,12 @@ public class CandidatoTest extends TestCase
     {
         setupEscenario1( );
 
-        assertTrue( "No se crea con el nombre dado por parámetro", candidato.getNombre( ).equals( "Felipe" ) );
-        assertTrue( "No se crea con el apellido dado por parámetro", candidato.getApellido( ).equals( "Pitti" ) );
-        assertTrue( "No se crea con el partido político dado por parámetro", candidato.getPartidoPolitico( ).equals( "Independiente" ) );
-        assertTrue( "No se crea con la edad dada por parámetro", candidato.getEdad( ) == 27 );
-        assertTrue( "No se crea con el costo de campaña en 0", candidato.getCostoCampanha( ) == 0 );
-        assertTrue( "No se crea con el número de votos en 0", candidato.getVotos( ) == 0 );
+        assertEquals( "No se crea con el nombre dado por parámetro", "Felipe", candidato.getNombre( ) );
+        assertEquals( "No se crea con el apellido dado por parámetro", "Pitti", candidato.getApellido( ) );
+        assertEquals( "No se crea con el partido político dado por parámetro", "Independiente", candidato.getPartidoPolitico( ) );
+        assertEquals( "No se crea con la edad dada por parámetro", 27, candidato.getEdad( ) );
+        assertEquals( "No se crea con el costo de campaña en 0", 0, candidato.getCostoCampanha( ) );
+        assertEquals( "No se crea con el número de votos en 0", 0, candidato.getVotos( ) );
     }
 
     /**

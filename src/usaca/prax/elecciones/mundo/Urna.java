@@ -39,16 +39,13 @@ public class Urna
     {
 
         // Inicializa el candidato 1
-        candidato1 = new Candidato( );
-        candidato1.inicializar( "Felipe", "Pitti", "Independiente", 27 );
+        candidato1 = new Candidato( "Felipe", "Pitti", "Independiente", 27 );
 
         // Inicializa el candidato 2
-        candidato2 = new Candidato( );
-        candidato2.inicializar( "Susanita", "Chirusi", "Revolucionario", 26 );
+        candidato2 = new Candidato( "Susanita", "Chirusi", "Revolucionario", 26 );
 
         // Inicializa el candidato 3
-        candidato3 = new Candidato( );
-        candidato3.inicializar( "Manolito", "Goreiro", "Tradicional", 26 );
+        candidato3 = new Candidato( "Manolito", "Goreiro", "Tradicional", 26 );
     }
 
     /**
