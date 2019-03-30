@@ -15,17 +15,17 @@ public class Urna
     /**
      * El candidato número 1 de la elecciones
      */
-    private Candidato candidato1;
+    private Candidate candidate1;
 
     /**
      * El candidato número 2 de la elecciones
      */
-    private Candidato candidato2;
+    private Candidate candidate2;
 
     /**
      * El candidato número 3 de la elecciones
      */
-    private Candidato candidato3;
+    private Candidate candidate3;
 
     // -----------------------------------------------------------------
     // Métodos
@@ -39,68 +39,68 @@ public class Urna
     {
 
         // Inicializa el candidato 1
-        candidato1 = new Candidato( "Frank", "Underwood", "Independiente", 27 );
+        candidate1 = new Candidate( "Frank", "Underwood", "Independiente", 27 );
 
         // Inicializa el candidato 2
-        candidato2 = new Candidato( "Claire", "Underwood", "Revolucionario", 26 );
+        candidate2 = new Candidate( "Claire", "Underwood", "Revolucionario", 26 );
 
         // Inicializa el candidato 3
-        candidato3 = new Candidato( "Barack", "Obama", "Tradicional", 26 );
+        candidate3 = new Candidate( "Barack", "Obama", "Tradicional", 26 );
     }
 
     /**
      * Devuelve el candidato 1
      * @return Candidato 1
      */
-    public Candidato darCandidato1( )
+    public Candidate darCandidato1( )
     {
-        return candidato1;
+        return candidate1;
     }
 
     /**
      * Devuelve el candidato 2
      * @return Candidato 2
      */
-    public Candidato darCandidato2( )
+    public Candidate darCandidato2( )
     {
-        return candidato2;
+        return candidate2;
     }
 
     /**
      * Devuelve el candidato 3
      * @return Candidato 3
      */
-    public Candidato darCandidato3( )
+    public Candidate darCandidato3( )
     {
-        return candidato3;
+        return candidate3;
     }
 
 
     /**
      * Ingresa un voto influenciado por la televisión al candidato.
-     * @param candidato Candidato a aumentar el voto.
+     * @param candidate Candidato a aumentar el voto.
      */
-    public void ingresarVotoTelevision(Candidato candidato)
+    public void ingresarVotoTelevision( Candidate candidate )
     {
-        candidato.agregarVotoTelevision();
+        candidate.agregarVotoTelevision();
     }
 
     /**
      * Ingresa un voto influenciado por la radio al candidato.
-     * @param candidato Candidato a aumentar el voto.
+     * @param candidate Candidato a aumentar el voto.
      */
-    public void ingresarVotoRadio(Candidato candidato)
+    public void ingresarVotoRadio( Candidate candidate )
     {
-        candidato.agregarVotoRadio();
+        candidate.agregarVotoRadio();
     }
 
     /**
      * Incresa un voto influenciado por la internet al candidato.
-     * @param candidato Candidato a aumentar el voto.
+     * @param candidate Candidato a aumentar el voto.
      */
-    public void ingresarVotoInternet(Candidato candidato)
+    public void ingresarVotoInternet( Candidate candidate )
     {
-        candidato.agregarVotoInternet();
+        candidate.agregarVotoInternet();
     }
 
     /**
@@ -109,7 +109,7 @@ public class Urna
      */
     public int calcularTotalVotos( )
     {
-        return candidato1.getVotos( ) + candidato2.getVotos( ) + candidato3.getVotos( );
+        return candidate1.getVotos( ) + candidate2.getVotos( ) + candidate3.getVotos( );
     }
 
     /**
@@ -122,7 +122,7 @@ public class Urna
         double total;
         double promedio;
 
-        total = candidato1.getCostoCampanha( ) + candidato2.getCostoCampanha( ) + candidato3.getCostoCampanha( );
+        total = candidate1.getCostoCampanha( ) + candidate2.getCostoCampanha( ) + candidate3.getCostoCampanha( );
         promedio = total / 3;
 
         return promedio;
@@ -131,12 +131,12 @@ public class Urna
 
     /**
      * Devuelve el porcentaje de votos obtenidos por el candidato.
-     * @param candidato Candidato del cual se va a calcular su porcentaje de votos.
+     * @param candidate Candidato del cual se va a calcular su porcentaje de votos.
      * @return Porcentje de votos obtenidos por el candidato.
      */
-    public double calcularPorcentajeVotos( Candidato candidato )
+    public double calcularPorcentajeVotos( Candidate candidate )
     {
-        double numeroVotosCandidato = candidato.getVotos();
+        double numeroVotosCandidato = candidate.getVotos();
         double votosTotales = calcularTotalVotos();
 
         return numeroVotosCandidato / votosTotales * 100;
@@ -149,16 +149,16 @@ public class Urna
     {
 
         // Reiniciar candidato 1
-        candidato1.reiniciarConteoVotos( );
-        candidato1.reiniciarCostoCampanha( );
+        candidate1.reiniciarConteoVotos( );
+        candidate1.reiniciarCostoCampanha( );
 
         // Reiniciar candidato 2
-        candidato2.reiniciarConteoVotos( );
-        candidato2.reiniciarCostoCampanha( );
+        candidate2.reiniciarConteoVotos( );
+        candidate2.reiniciarCostoCampanha( );
 
         // Reiniciar candidato 3
-        candidato3.reiniciarConteoVotos( );
-        candidato3.reiniciarCostoCampanha( );
+        candidate3.reiniciarConteoVotos( );
+        candidate3.reiniciarCostoCampanha( );
     }
 
     // -----------------------------------------------------------------

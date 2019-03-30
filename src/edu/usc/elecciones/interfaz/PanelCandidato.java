@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import edu.usc.elecciones.mundo.Candidato;
+import edu.usc.elecciones.mundo.Candidate;
 
 /**
  * Panel que contiene la información de un candidato.
@@ -48,7 +48,7 @@ public class PanelCandidato extends JPanel implements ActionListener
     /**
      * Candidato que representará el panel.
      */
-    private Candidato candidato;
+    private Candidate candidate;
 
     // -----------------------------------------------------------------
     // Atributos de la interfaz
@@ -101,12 +101,12 @@ public class PanelCandidato extends JPanel implements ActionListener
     /**
      * Constructor del panel
      * @param laPrincipal Ventana principal. laPrincipal != null.
-     * @param nCandidato Número del candidato.
+     * @param nCandidate Número del candidato.
      */
-    public PanelCandidato( InterfazElecciones laPrincipal, Candidato nCandidato, ImageIcon icon )
+    public PanelCandidato( InterfazElecciones laPrincipal, Candidate nCandidate, ImageIcon icon )
     {
         principal = laPrincipal;
-        candidato = nCandidato;
+        candidate = nCandidate;
 
         // Botón actualizar datos
         botonDarPorcentajeVotos = new JButton( PORCENTAJE_VOTOS );
@@ -144,7 +144,7 @@ public class PanelCandidato extends JPanel implements ActionListener
         panelInformacion.setBackground( Color.WHITE );
 
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidato.getNombre() ) );
+        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidate.getNombre() ) );
         setBackground( Color.WHITE );
 
         add( panelImagen, java.awt.BorderLayout.CENTER );
@@ -182,16 +182,16 @@ public class PanelCandidato extends JPanel implements ActionListener
 
     /**
      * Actualiza la visualización de la información
-     * @param candidato Candidato de donde se saca la información. candidato != null.
+     * @param candidate Candidato de donde se saca la información. candidato != null.
      */
-    public void actualizar( Candidato candidato )
+    public void actualizar( Candidate candidate )
     {
-        etiquetaNombreCandidato.setText( "Nombre: " + candidato.getNombre( ) );
-        etiquetaApellidoCandidato.setText( "Apellido: " + candidato.getApellido( ) );
-        etiquetaEdadCandidato.setText( "Edad: " + candidato.getEdad( ) );
-        etiquetaPartidoPoliticoCandidato.setText( "Partido Político: " + String.valueOf( candidato.getPartidoPolitico( ) ) );
-        etiquetaCostoCampanhaCandidato.setText( "Costo Campaña: $" + formatearValorReal( candidato.getCostoCampanha( ) ) );
-        etiquetaNumeroVotos.setText( "Numero de Votos: " + candidato.getVotos( ) );
+        etiquetaNombreCandidato.setText( "Nombre: " + candidate.getNombre( ) );
+        etiquetaApellidoCandidato.setText( "Apellido: " + candidate.getApellido( ) );
+        etiquetaEdadCandidato.setText( "Edad: " + candidate.getEdad( ) );
+        etiquetaPartidoPoliticoCandidato.setText( "Partido Político: " + String.valueOf( candidate.getPartidoPolitico( ) ) );
+        etiquetaCostoCampanhaCandidato.setText( "Costo Campaña: $" + formatearValorReal( candidate.getCostoCampanha( ) ) );
+        etiquetaNumeroVotos.setText( "Numero de Votos: " + candidate.getVotos( ) );
 
         if( principal.darTotalVotosUrna( ) == 0 )
             botonDarPorcentajeVotos.setEnabled( false );
@@ -208,11 +208,11 @@ public class PanelCandidato extends JPanel implements ActionListener
     {
         if( VOTAR.equals( e.getActionCommand( ) ) )
         {
-            principal.adicionarVotoCandidato( candidato );
+            principal.adicionarVotoCandidato( candidate );
         }
         else if( PORCENTAJE_VOTOS.equals( e.getActionCommand( ) ) )
         {
-            principal.mostrarDialogoPorcentajeVotos( candidato );
+            principal.mostrarDialogoPorcentajeVotos( candidate );
         }
 
     }

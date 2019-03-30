@@ -6,7 +6,7 @@ import java.text.NumberFormat;
 
 import javax.swing.*;
 
-import edu.usc.elecciones.mundo.Candidato;
+import edu.usc.elecciones.mundo.Candidate;
 import edu.usc.elecciones.mundo.Urna;
 
 @SuppressWarnings( "serial" )
@@ -129,9 +129,9 @@ public class InterfazElecciones extends JFrame
     /**
      * Adiciona un voto a un candidato dependiendo del medio que más
      * influenció el voto.
-     * @param candidato Candidato a adicionar el voto
+     * @param candidate Candidato a adicionar el voto
      */
-    public void adicionarVotoCandidato( Candidato candidato )
+    public void adicionarVotoCandidato( Candidate candidate )
     {
 
         Object[] possibilities = { "Televisión", "Radio", "Internet" };
@@ -141,15 +141,15 @@ public class InterfazElecciones extends JFrame
         {
             if ( influencia.equals( "Televisión" ) )
             {
-                urna.ingresarVotoTelevision( candidato );
+                urna.ingresarVotoTelevision( candidate );
             }
             else if ( influencia.equals( "Radio" ) )
             {
-                urna.ingresarVotoRadio( candidato );
+                urna.ingresarVotoRadio( candidate );
             }
             else if ( influencia.equals( "Internet" ) )
             {
-                urna.ingresarVotoInternet( candidato );
+                urna.ingresarVotoInternet( candidate );
             }
         }
         actualizar( );
@@ -169,11 +169,11 @@ public class InterfazElecciones extends JFrame
     /**
      * Se informa el porcentaje de votos de un candidato dado.
      *
-     * @param candidato Candidato del cual se va a mostrar el porcentaje de votos
+     * @param candidate Candidato del cual se va a mostrar el porcentaje de votos
      */
-    public void mostrarDialogoPorcentajeVotos( Candidato candidato )
+    public void mostrarDialogoPorcentajeVotos( Candidate candidate )
     {
-        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotos( candidato ) ) + " %", "Candidato " + candidato.getNombre(), JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getNombre(), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**

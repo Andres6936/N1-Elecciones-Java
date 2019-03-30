@@ -3,7 +3,7 @@ package edu.usc.elecciones.mundo;
 /**
  * Candidato de la elección.
  */
-public class Candidato
+public class Candidate
 {
     //-------------------------------------------
     // Atributos
@@ -52,7 +52,7 @@ public class Candidato
      * @param nPartidoPolitico Partido político del candidato
      * @param nEdad Edad del candidato
      */
-    public Candidato(String nNombre, String nApellido, String nPartidoPolitico, int nEdad)
+    public Candidate( String nNombre, String nApellido, String nPartidoPolitico, int nEdad)
     {
         nombre = nNombre;
         apellido = nApellido;
