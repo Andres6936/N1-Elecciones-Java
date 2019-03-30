@@ -146,7 +146,7 @@ public class UrnaTest extends TestCase
     }
 
     /**
-     * Prueba 13 - Calcular el porcentaje de los votos obtenidos por el candidato 1
+     * Prueba 13 - Calcular el porcentaje de los votos obtenidos por los candidatos.
      */
     public void testCalcularPorcentajeVotosCandidato1( )
     {
@@ -154,31 +154,9 @@ public class UrnaTest extends TestCase
 
         double porcentaje = ( double )3 / ( double )9 * ( double )100;
 
-        assertTrue( "No calcula el costo promedio de campaña correctamente", urna.calcularPorcentajeVotosCandidato1( ) == porcentaje );
-    }
-
-    /**
-     * Prueba 14 - Calcular el porcentaje de los votos obtenidos por el candidato 2
-     */
-    public void testCalcularPorcentajeVotosCandidato2( )
-    {
-        setupEscenario2( );
-
-        double porcentaje = ( double )3 / ( double )9 * ( double )100;
-
-        assertTrue( "No calcula el costo promedio de campaña correctamente", urna.calcularPorcentajeVotosCandidato2( ) == porcentaje );
-    }
-
-    /**
-     * Prueba 15 - Calcular el porcentaje de los votos obtenidos por el candidato 3
-     */
-    public void testCalcularPorcentajeVotosCandidato3( )
-    {
-        setupEscenario2( );
-
-        double porcentaje = ( double )3 / ( double )9 * ( double )100;
-
-        assertTrue( "No calcula el costo promedio de campaña correctamente", urna.calcularPorcentajeVotosCandidato3( ) == porcentaje );
+        assertTrue( "No calcula el costo promedio de campaña correctamente", urna.calcularPorcentajeVotos( urna.darCandidato1() ) == porcentaje );
+        assertTrue( "No calcula el costo promedio de campaña correctamente", urna.calcularPorcentajeVotos( urna.darCandidato2() ) == porcentaje );
+        assertTrue( "No calcula el costo promedio de campaña correctamente", urna.calcularPorcentajeVotos( urna.darCandidato3() ) == porcentaje );
     }
 
     /**

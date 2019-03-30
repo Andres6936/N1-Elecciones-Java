@@ -173,23 +173,11 @@ public class InterfazElecciones extends JFrame
     /**
      * Se informa el porcentaje de votos de un candidato dado.
      *
-     * @param numCandidato El número del candidato del cual se va a mostrar el porcentaje de votos
+     * @param candidato Candidato del cual se va a mostrar el porcentaje de votos
      */
-    public void mostrarDialogoPorcentajeVotos( int numCandidato )
+    public void mostrarDialogoPorcentajeVotos( Candidato candidato )
     {
-
-        if ( numCandidato == 1 )
-        {
-            JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotosCandidato1( ) ) + " %", "Candidato " + numCandidato, JOptionPane.INFORMATION_MESSAGE );
-        }
-        if ( numCandidato == 2 )
-        {
-            JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotosCandidato2( ) ) + " %", "Candidato " + numCandidato, JOptionPane.INFORMATION_MESSAGE );
-        }
-        if ( numCandidato == 3 )
-        {
-            JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotosCandidato3( ) ) + " %", "Candidato " + numCandidato, JOptionPane.INFORMATION_MESSAGE );
-        }
+        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotos( candidato ) ) + " %", "Candidato " + candidato.getNombre(), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**

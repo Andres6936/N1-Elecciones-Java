@@ -133,63 +133,16 @@ public class Urna
     }
 
     /**
-     * Devuelve el porcentaje de votos obtenidos por el candidato 1
-     * @return porcentaje de votos obtenidos por el candidato 1
+     * Devuelve el porcentaje de votos obtenidos por el candidato.
+     * @param candidato Candidato del cual se va a calcular su porcentaje de votos.
+     * @return Porcentje de votos obtenidos por el candidato.
      */
-    public double calcularPorcentajeVotosCandidato1( )
+    public double calcularPorcentajeVotos( Candidato candidato )
     {
+        double numeroVotosCandidato = candidato.getVotos();
+        double votosTotales = calcularTotalVotos();
 
-        double numVotosCandidato1;
-        double votosTotales;
-
-        double porcentaje;
-
-        numVotosCandidato1 = candidato1.getVotos( );
-        votosTotales = calcularTotalVotos( );
-
-        porcentaje = numVotosCandidato1 / votosTotales * 100;
-
-        return porcentaje;
-    }
-
-    /**
-     * Devuelve el porcentaje de votos obtenidos por el candidato 2
-     * @return porcentaje de votos obtenidos por el candidato 2
-     */
-    public double calcularPorcentajeVotosCandidato2( )
-    {
-
-        double numVotosCandidato2;
-        double votosTotales;
-
-        double porcentaje;
-
-        numVotosCandidato2 = candidato2.getVotos( );
-        votosTotales = calcularTotalVotos( );
-
-        porcentaje = numVotosCandidato2 / votosTotales * 100;
-
-        return porcentaje;
-    }
-
-    /**
-     * Devuelve el porcentaje de votos obtenidos por el candidato 3
-     * @return porcentaje de votos obtenidos por el candidato 3
-     */
-    public double calcularPorcentajeVotosCandidato3( )
-    {
-
-        double numVotosCandidato3;
-        double votosTotales;
-
-        double porcentaje;
-
-        numVotosCandidato3 = candidato3.getVotos( );
-        votosTotales = calcularTotalVotos( );
-
-        porcentaje = numVotosCandidato3 / votosTotales * 100;
-
-        return porcentaje;
+        return numeroVotosCandidato / votosTotales * 100;
     }
 
     /**

@@ -218,7 +218,7 @@ public class PanelCandidato extends JPanel implements ActionListener
         }
         else if( PORCENTAJE_VOTOS.equals( e.getActionCommand( ) ) )
         {
-            principal.mostrarDialogoPorcentajeVotos( numCandidato );
+            principal.mostrarDialogoPorcentajeVotos( candidato );
         }
 
     }
