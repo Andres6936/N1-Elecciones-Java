@@ -7,7 +7,7 @@ import java.text.NumberFormat;
 import javax.swing.*;
 
 import edu.usc.elecciones.mundo.Candidate;
-import edu.usc.elecciones.mundo.Urna;
+import edu.usc.elecciones.mundo.Urn;
 
 @SuppressWarnings( "serial" )
 public class InterfazElecciones extends JFrame
@@ -19,7 +19,7 @@ public class InterfazElecciones extends JFrame
     /**
      * Clase principal del mundo
      */
-    private Urna urna;
+    private Urn urn;
 
     // -----------------------------------------------------------------
     // Atributos de la interfaz
@@ -65,8 +65,8 @@ public class InterfazElecciones extends JFrame
     public InterfazElecciones( )
     {
         // Crea la clase principal
-        urna = new Urna( );
-        urna.inicializar( );
+        urn = new Urn( );
+        urn.inicializar( );
 
         // Construye la forma
         setTitle( "Elecciones Usaca" );
@@ -103,11 +103,11 @@ public class InterfazElecciones extends JFrame
         ImageIcon imageClaire = new ImageIcon( "data/Claire.jpg" );
         ImageIcon imageObama = new ImageIcon( "data/Obama.jpg" );
 
-        panelCandidato1 = new PanelCandidato( this, urna.darCandidato1(), imageFrancis );
+        panelCandidato1 = new PanelCandidato( this, urn.darCandidato1(), imageFrancis );
         panelCandidatos.add( panelCandidato1 );
-        panelCandidato2 = new PanelCandidato( this, urna.darCandidato2(), imageClaire );
+        panelCandidato2 = new PanelCandidato( this, urn.darCandidato2(), imageClaire );
         panelCandidatos.add( panelCandidato2 );
-        panelCandidato3 = new PanelCandidato( this, urna.darCandidato3(), imageObama );
+        panelCandidato3 = new PanelCandidato( this, urn.darCandidato3(), imageObama );
         panelCandidatos.add( panelCandidato3 );
 
         JPanel panelInferior = new JPanel( );
@@ -141,15 +141,15 @@ public class InterfazElecciones extends JFrame
         {
             if ( influencia.equals( "Televisión" ) )
             {
-                urna.ingresarVotoTelevision( candidate );
+                urn.ingresarVotoTelevision( candidate );
             }
             else if ( influencia.equals( "Radio" ) )
             {
-                urna.ingresarVotoRadio( candidate );
+                urn.ingresarVotoRadio( candidate );
             }
             else if ( influencia.equals( "Internet" ) )
             {
-                urna.ingresarVotoInternet( candidate );
+                urn.ingresarVotoInternet( candidate );
             }
         }
         actualizar( );
@@ -161,7 +161,7 @@ public class InterfazElecciones extends JFrame
      */
     public void vaciarUrna( )
     {
-        urna.vaciarUrna( );
+        urn.vaciarUrna( );
         actualizar( );
 
     }
@@ -173,7 +173,7 @@ public class InterfazElecciones extends JFrame
      */
     public void mostrarDialogoPorcentajeVotos( Candidate candidate )
     {
-        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getNombre(), JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getNombre(), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**
@@ -183,7 +183,7 @@ public class InterfazElecciones extends JFrame
      */
     public int darTotalVotosUrna( )
     {
-        return urna.calcularTotalVotos( );
+        return urn.calcularTotalVotos( );
     }
     // -----------------------------------------------------------------
     // Puntos de Extensión
@@ -194,7 +194,7 @@ public class InterfazElecciones extends JFrame
      */
     public void reqFuncOpcion1( )
     {
-        String resultado = urna.metodo1( );
+        String resultado = urn.metodo1( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -203,7 +203,7 @@ public class InterfazElecciones extends JFrame
      */
     public void reqFuncOpcion2( )
     {
-        String resultado = urna.metodo2( );
+        String resultado = urn.metodo2( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -228,10 +228,10 @@ public class InterfazElecciones extends JFrame
      */
     private void actualizar( )
     {
-        panelCandidato1.actualizar( urna.darCandidato1( ) );
-        panelCandidato2.actualizar( urna.darCandidato2( ) );
-        panelCandidato3.actualizar( urna.darCandidato3( ) );
-        panelUrna.actualizar( urna );
+        panelCandidato1.actualizar( urn.darCandidato1( ) );
+        panelCandidato2.actualizar( urn.darCandidato2( ) );
+        panelCandidato3.actualizar( urn.darCandidato3( ) );
+        panelUrna.actualizar( urn );
     }
 
     /**

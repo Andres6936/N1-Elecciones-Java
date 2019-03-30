@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import edu.usc.elecciones.mundo.Urna;
+import edu.usc.elecciones.mundo.Urn;
 
 /**
  * Panel que contiene la información de la urna de votos en las elecciones cupi2
@@ -69,12 +69,12 @@ public class PanelUrna extends JPanel
 
     /**
      * Actualiza la información
-     * @param urna Urna de la cual se va a mostrar la información. urna != null.
+     * @param urn Urna de la cual se va a mostrar la información. urna != null.
      */
-    public void actualizar( Urna urna )
+    public void actualizar( Urn urn )
     {
-        etiquetaTotalVotos.setText( "Total Votos: " + urna.calcularTotalVotos( ) );
-        etiquetaPromedioCostoCampanha.setText( "Costo Promedio Campaña: $" + formatearValorReal( urna.calcularCostoPromedioCampanha( ) ) );
+        etiquetaTotalVotos.setText( "Total Votos: " + urn.calcularTotalVotos( ) );
+        etiquetaPromedioCostoCampanha.setText( "Costo Promedio Campaña: $" + formatearValorReal( urn.calcularCostoPromedioCampanha( ) ) );
 
     }
 

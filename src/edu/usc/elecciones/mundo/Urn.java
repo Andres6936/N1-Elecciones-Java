@@ -5,7 +5,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Es la una urna de votación con tres candidatos.
  */
-public class Urna
+public class Urn
 {
 
     // -----------------------------------------------------------------
