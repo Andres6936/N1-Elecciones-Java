@@ -144,7 +144,7 @@ public class PanelCandidato extends JPanel implements ActionListener
         panelInformacion.setBackground( Color.WHITE );
 
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato" + candidato.getNombre() ) );
+        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidato.getNombre() ) );
         setBackground( Color.WHITE );
 
         add( panelImagen, java.awt.BorderLayout.CENTER );

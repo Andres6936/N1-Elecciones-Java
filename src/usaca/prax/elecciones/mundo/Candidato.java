@@ -45,7 +45,7 @@ public class Candidato
 
     /**
      * Inicializa los datos del candidato con los valores que vienen por parámetro. <br>
-     * <b>post: </b> El costo de campaña se inicializó en cero<br>
+     * <b>post: </b> El costo de campaña se inicializó en cero.<br>
      * El número de votos se inicializó en cero. <br>
      * @param nNombre Nombre del candidato
      * @param nApellido Apellido del Candidato

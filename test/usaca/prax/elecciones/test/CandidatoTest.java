@@ -52,8 +52,8 @@ public class CandidatoTest extends TestCase
         setupEscenario1( );
 
         candidato.agregarVotoTelevision( );
-        assertTrue( "No aumenta el número de votos en 1", candidato.getVotos( ) == 1 );
-        assertTrue( "No aumenta el costo de campaña en 1000", candidato.getCostoCampanha( ) == 1000 );
+        assertEquals( "No aumenta el número de votos en 1", 1, candidato.getVotos( ) );
+        assertEquals( "No aumenta el costo de campaña en 1000", 1000, candidato.getCostoCampanha( ) );
     }
 
     /**
@@ -64,8 +64,8 @@ public class CandidatoTest extends TestCase
         setupEscenario1( );
 
         candidato.agregarVotoRadio( );
-        assertTrue( "No aumenta el número de votos en 1", candidato.getVotos( ) == 1 );
-        assertTrue( "No aumenta el costo de campaña en 500", candidato.getCostoCampanha( ) == 500 );
+        assertEquals( "No aumenta el número de votos en 1", 1, candidato.getVotos( ) );
+        assertEquals( "No aumenta el costo de campaña en 500", 500, candidato.getCostoCampanha( ) );
     }
 
     /**
@@ -76,8 +76,8 @@ public class CandidatoTest extends TestCase
         setupEscenario1( );
 
         candidato.agregarVotoInternet( );
-        assertTrue( "No aumenta el número de votos en 1", candidato.getVotos( ) == 1 );
-        assertTrue( "No aumenta el costo de campaña en 100", candidato.getCostoCampanha( ) == 100 );
+        assertEquals( "No aumenta el número de votos en 1", 1, candidato.getVotos( ) );
+        assertEquals( "No aumenta el costo de campaña en 100", 100, candidato.getCostoCampanha( ) );
     }
 
     /**
@@ -92,7 +92,7 @@ public class CandidatoTest extends TestCase
         candidato.agregarVotoInternet( );
         candidato.reiniciarConteoVotos( );
 
-        assertTrue( "No inicializa el número de votos a 0", candidato.getVotos( ) == 0 );
+        assertEquals( "No inicializa el número de votos a 0", 0, candidato.getVotos( ) );
     }
 
     /**
@@ -107,6 +107,6 @@ public class CandidatoTest extends TestCase
         candidato.agregarVotoInternet( );
         candidato.reiniciarCostoCampanha( );
 
-        assertTrue( "No inicializa el costo de campaña a 0", candidato.getCostoCampanha( ) == 0 );
+        assertEquals( "No inicializa el costo de campaña a 0", 0, candidato.getCostoCampanha( ) );
     }
 }
