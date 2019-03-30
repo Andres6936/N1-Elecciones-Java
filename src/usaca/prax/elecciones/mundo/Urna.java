@@ -1,5 +1,7 @@
 package usaca.prax.elecciones.mundo;
 
+import org.jetbrains.annotations.NotNull;
+
 /**
  * Es la una urna de votación con tres candidatos.
  */
@@ -74,6 +76,34 @@ public class Urna
     public Candidato darCandidato3( )
     {
         return candidato3;
+    }
+
+
+    /**
+     * Ingresa un voto influenciado por la televisión al candidato.
+     * @param candidato Candidato a aumentar el voto.
+     */
+    public void ingresarVotoTelevision(Candidato candidato)
+    {
+        candidato.agregarVotoTelevision();
+    }
+
+    /**
+     * Ingresa un voto influenciado por la radio al candidato.
+     * @param candidato Candidato a aumentar el voto.
+     */
+    public void ingresarVotoRadio(Candidato candidato)
+    {
+        candidato.agregarVotoRadio();
+    }
+
+    /**
+     * Incresa un voto influenciado por la internet al candidato.
+     * @param candidato Candidato a aumentar el voto.
+     */
+    public void ingresarVotoInternet(Candidato candidato)
+    {
+        candidato.agregarVotoInternet();
     }
 
     /**
@@ -261,6 +291,7 @@ public class Urna
      * Método para la extensión 1
      * @return respuesta1
      */
+    @NotNull
     public String metodo1( )
     {
         return "Respuesta 1";
@@ -270,6 +301,7 @@ public class Urna
      * Método para la extensión2
      * @return respuesta2
      */
+    @NotNull
     public String metodo2( )
     {
         return "Respuesta 2";

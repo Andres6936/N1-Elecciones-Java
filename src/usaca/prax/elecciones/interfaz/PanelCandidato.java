@@ -50,6 +50,11 @@ public class PanelCandidato extends JPanel implements ActionListener
      */
     private int numCandidato;
 
+    /**
+     * Candidato que representará el panel.
+     */
+    private Candidato candidato;
+
     // -----------------------------------------------------------------
     // Atributos de la interfaz
     // -----------------------------------------------------------------
@@ -103,10 +108,11 @@ public class PanelCandidato extends JPanel implements ActionListener
      * @param laPrincipal Ventana principal. laPrincipal != null.
      * @param nCandidato Número del candidato.
      */
-    public PanelCandidato( InterfazElecciones laPrincipal, int nCandidato )
+    public PanelCandidato( InterfazElecciones laPrincipal, int numberCandidato, Candidato nCandidato )
     {
         principal = laPrincipal;
-        numCandidato = nCandidato;
+        numCandidato = numberCandidato;
+        candidato = nCandidato;
 
         // Botón actualizar datos
         botonDarPorcentajeVotos = new JButton( PORCENTAJE_VOTOS );
@@ -139,10 +145,13 @@ public class PanelCandidato extends JPanel implements ActionListener
         etiquetaNumeroVotos.setForeground( Color.RED.darker( ) );
 
         JPanel panelImagen = new JPanel( );
+        panelImagen.setBackground( Color.WHITE );
         JPanel panelInformacion = new JPanel( );
+        panelInformacion.setBackground( Color.WHITE );
 
         setLayout( new java.awt.BorderLayout( ) );
         setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato" + numCandidato ) );
+        setBackground( Color.WHITE );
 
         add( panelImagen, java.awt.BorderLayout.CENTER );
         panelImagen.setLayout( new BorderLayout( ) );
@@ -205,7 +214,7 @@ public class PanelCandidato extends JPanel implements ActionListener
     {
         if( VOTAR.equals( e.getActionCommand( ) ) )
         {
-            principal.adicionarVotoCandidato( numCandidato );
+            principal.adicionarVotoCandidato( candidato );
         }
         else if( PORCENTAJE_VOTOS.equals( e.getActionCommand( ) ) )
         {

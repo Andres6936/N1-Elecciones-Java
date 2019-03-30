@@ -44,6 +44,7 @@ public class PanelUrna extends JPanel
     {
         setBorder( new TitledBorder( "Totales" ) );
         setLayout( new GridLayout( 2, 1 ) );
+        setBackground( Color.WHITE );
 
         // Etiqueta total votos
         etiquetaTotalVotos = new JLabel( "Total Votos: " );

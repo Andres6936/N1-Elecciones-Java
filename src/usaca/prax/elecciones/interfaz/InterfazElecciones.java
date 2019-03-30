@@ -1,17 +1,15 @@
 package usaca.prax.elecciones.interfaz;
 
-import java.awt.BorderLayout;
-import java.awt.GridLayout;
+import java.awt.*;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.*;
 
+import usaca.prax.elecciones.mundo.Candidato;
 import usaca.prax.elecciones.mundo.Urna;
 
-@SuppressWarnings("serial")
+@SuppressWarnings( "serial" )
 public class InterfazElecciones extends JFrame
 {
     // -----------------------------------------------------------------
@@ -74,8 +72,29 @@ public class InterfazElecciones extends JFrame
         setTitle( "Elecciones Usaca" );
         getContentPane( ).setLayout( new BorderLayout( ) );
         setSize( 800, 600 );
-        setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+        setDefaultCloseOperation( WindowConstants.EXIT_ON_CLOSE );
         setResizable( false );
+
+        try
+        {
+            UIManager.setLookAndFeel( "javax.swing.plaf.nimbus.NimbusLookAndFeel" );
+        }
+        catch ( ClassNotFoundException e )
+        {
+            e.printStackTrace( );
+        }
+        catch ( InstantiationException e )
+        {
+            e.printStackTrace( );
+        }
+        catch ( IllegalAccessException e )
+        {
+            e.printStackTrace( );
+        }
+        catch ( UnsupportedLookAndFeelException e )
+        {
+            e.printStackTrace( );
+        }
 
         // Creación de los paneles aquí
 
@@ -88,11 +107,11 @@ public class InterfazElecciones extends JFrame
         JPanel panelCandidatos = new JPanel( );
         panelCandidatos.setLayout( new GridLayout( 1, 3 ) );
         getContentPane( ).add( panelCandidatos, BorderLayout.CENTER );
-        panelCandidato1 = new PanelCandidato( this, 1 );
+        panelCandidato1 = new PanelCandidato( this, 1, urna.darCandidato1() );
         panelCandidatos.add( panelCandidato1 );
-        panelCandidato2 = new PanelCandidato( this, 2 );
+        panelCandidato2 = new PanelCandidato( this, 2, urna.darCandidato2() );
         panelCandidatos.add( panelCandidato2 );
-        panelCandidato3 = new PanelCandidato( this, 3 );
+        panelCandidato3 = new PanelCandidato( this, 3, urna.darCandidato3() );
         panelCandidatos.add( panelCandidato3 );
 
         JPanel panelInferior = new JPanel( );
@@ -112,60 +131,29 @@ public class InterfazElecciones extends JFrame
     // -----------------------------------------------------------------
 
     /**
-     * Adiciona un voto a un candidato dependiendo del medio que mas influenció el voto
-     * @param numCandidato número del candidato a adicionar el voto
+     * Adiciona un voto a un candidato dependiendo del medio que más
+     * influenció el voto.
+     * @param candidato Candidato a adicionar el voto
      */
-    public void adicionarVotoCandidato( int numCandidato )
+    public void adicionarVotoCandidato( Candidato candidato )
     {
 
         Object[] possibilities = { "Televisión", "Radio", "Internet" };
-        String influencia = ( String )JOptionPane.showInputDialog( this, "¿Que medio influenció mas en usted para votar por este candidato?", "Influencia", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Televisión" );
+        String influencia = ( String ) JOptionPane.showInputDialog( this, "¿Que medio influenció mas en usted para votar por este candidato?", "Influencia", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Televisión" );
 
-        if( influencia != null ){
-            if( numCandidato == 1 )
+        if ( influencia != null )
+        {
+            if ( influencia.equals( "Televisión" ) )
             {
-                if( influencia.equals( "Televisión" ) )
-                {
-                    urna.ingresarVotoTelevisionCandidato1( );
-                }
-                if( influencia.equals( "Radio" ) )
-                {
-                    urna.ingresarVotoRadioCandidato1( );
-                }
-                if( influencia.equals( "Internet" ) )
-                {
-                    urna.ingresarVotoInternetCandidato1( );
-                }
+                urna.ingresarVotoTelevision( candidato );
             }
-            if( numCandidato == 2 )
+            else if ( influencia.equals( "Radio" ) )
             {
-                if( influencia.equals( "Televisión" ) )
-                {
-                    urna.ingresarVotoTelevisionCandidato2( );
-                }
-                if( influencia.equals( "Radio" ) )
-                {
-                    urna.ingresarVotoRadioCandidato2( );
-                }
-                if( influencia.equals( "Internet" ) )
-                {
-                    urna.ingresarVotoInternetCandidato2( );
-                }
+                urna.ingresarVotoRadio( candidato );
             }
-            if( numCandidato == 3 )
+            else if ( influencia.equals( "Internet" ) )
             {
-                if( influencia.equals( "Televisión" ) )
-                {
-                    urna.ingresarVotoTelevisionCandidato3( );
-                }
-                if( influencia.equals( "Radio" ) )
-                {
-                    urna.ingresarVotoRadioCandidato3( );
-                }
-                if( influencia.equals( "Internet" ) )
-                {
-                    urna.ingresarVotoInternetCandidato3( );
-                }
+                urna.ingresarVotoInternet( candidato );
             }
         }
         actualizar( );
@@ -174,7 +162,6 @@ public class InterfazElecciones extends JFrame
 
     /**
      * Restaura la urna
-     *
      */
     public void vaciarUrna( )
     {
@@ -185,20 +172,21 @@ public class InterfazElecciones extends JFrame
 
     /**
      * Se informa el porcentaje de votos de un candidato dado.
+     *
      * @param numCandidato El número del candidato del cual se va a mostrar el porcentaje de votos
      */
     public void mostrarDialogoPorcentajeVotos( int numCandidato )
     {
 
-        if( numCandidato == 1 )
+        if ( numCandidato == 1 )
         {
             JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotosCandidato1( ) ) + " %", "Candidato " + numCandidato, JOptionPane.INFORMATION_MESSAGE );
         }
-        if( numCandidato == 2 )
+        if ( numCandidato == 2 )
         {
             JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotosCandidato2( ) ) + " %", "Candidato " + numCandidato, JOptionPane.INFORMATION_MESSAGE );
         }
-        if( numCandidato == 3 )
+        if ( numCandidato == 3 )
         {
             JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urna.calcularPorcentajeVotosCandidato3( ) ) + " %", "Candidato " + numCandidato, JOptionPane.INFORMATION_MESSAGE );
         }
@@ -206,6 +194,7 @@ public class InterfazElecciones extends JFrame
 
     /**
      * Total de votos de la urna
+     *
      * @return El total de votos que contiene la urna
      */
     public int darTotalVotosUrna( )
@@ -240,11 +229,11 @@ public class InterfazElecciones extends JFrame
 
     /**
      * Este método ejecuta la aplicación, creando una nueva interfaz
+     *
      * @param args
      */
     public static void main( String[] args )
     {
-
         InterfazElecciones interfaz = new InterfazElecciones( );
         interfaz.setVisible( true );
     }
@@ -263,12 +252,13 @@ public class InterfazElecciones extends JFrame
 
     /**
      * Formatea un valor numérico real para presentar en la interfaz <br>
+     *
      * @param valor El valor numérico a ser formateado
      * @return Cadena con el valor formateado con puntos y signos.
      */
     private String formatearValorReal( double valor )
     {
-        DecimalFormat df = ( DecimalFormat )NumberFormat.getInstance( );
+        DecimalFormat df = ( DecimalFormat ) NumberFormat.getInstance( );
         df.applyPattern( " ###,###.##" );
         df.setMinimumFractionDigits( 2 );
         return df.format( valor );
