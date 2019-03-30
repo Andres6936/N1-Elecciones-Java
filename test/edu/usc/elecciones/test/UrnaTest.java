@@ -1,6 +1,6 @@
-package usaca.prax.elecciones.test;
+package edu.usc.elecciones.test;
 
-import usaca.prax.elecciones.mundo.Urna;
+import edu.usc.elecciones.mundo.Urna;
 
 import junit.framework.TestCase;
 

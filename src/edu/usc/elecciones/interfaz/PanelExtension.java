@@ -1,4 +1,4 @@
-package usaca.prax.elecciones.interfaz;
+package edu.usc.elecciones.interfaz;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;

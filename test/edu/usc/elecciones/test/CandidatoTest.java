@@ -1,6 +1,6 @@
-package usaca.prax.elecciones.test;
+package edu.usc.elecciones.test;
 
-import usaca.prax.elecciones.mundo.Candidato;
+import edu.usc.elecciones.mundo.Candidato;
 import junit.framework.TestCase;
 
 /**

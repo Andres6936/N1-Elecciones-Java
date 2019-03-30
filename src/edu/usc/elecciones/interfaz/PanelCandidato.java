@@ -1,4 +1,4 @@
-package usaca.prax.elecciones.interfaz;
+package edu.usc.elecciones.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -14,7 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-import usaca.prax.elecciones.mundo.Candidato;
+import edu.usc.elecciones.mundo.Candidato;
 
 /**
  * Panel que contiene la información de un candidato.

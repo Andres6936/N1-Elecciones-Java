@@ -1,4 +1,4 @@
-package usaca.prax.elecciones.interfaz;
+package edu.usc.elecciones.interfaz;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,7 +11,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.TitledBorder;
 
-import usaca.prax.elecciones.mundo.Urna;
+import edu.usc.elecciones.mundo.Urna;
 
 /**
  * Panel que contiene la información de la urna de votos en las elecciones cupi2

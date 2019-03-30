@@ -1,4 +1,4 @@
-package usaca.prax.elecciones.mundo;
+package edu.usc.elecciones.mundo;
 
 /**
  * Candidato de la elección.
