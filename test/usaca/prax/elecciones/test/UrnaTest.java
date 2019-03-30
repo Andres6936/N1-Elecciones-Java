@@ -37,17 +37,17 @@ public class UrnaTest extends TestCase
         urna = new Urna( );
         urna.inicializar( );
 
-        urna.ingresarVotoTelevisionCandidato1( );
-        urna.ingresarVotoTelevisionCandidato2( );
-        urna.ingresarVotoTelevisionCandidato3( );
+        urna.ingresarVotoTelevision( urna.darCandidato1() );
+        urna.ingresarVotoTelevision( urna.darCandidato2() );
+        urna.ingresarVotoTelevision( urna.darCandidato3() );
 
-        urna.ingresarVotoRadioCandidato1( );
-        urna.ingresarVotoRadioCandidato2( );
-        urna.ingresarVotoRadioCandidato3( );
+        urna.ingresarVotoRadio( urna.darCandidato1() );
+        urna.ingresarVotoRadio( urna.darCandidato2() );
+        urna.ingresarVotoRadio( urna.darCandidato3() );
 
-        urna.ingresarVotoInternetCandidato1( );
-        urna.ingresarVotoInternetCandidato2( );
-        urna.ingresarVotoInternetCandidato3( );
+        urna.ingresarVotoInternet( urna.darCandidato1() );
+        urna.ingresarVotoInternet( urna.darCandidato2() );
+        urna.ingresarVotoInternet( urna.darCandidato3() );
     }
 
     /**
@@ -62,100 +62,64 @@ public class UrnaTest extends TestCase
     }
 
     /**
-     * Prueba 2 - Ingresar voto influenciado por la televisión al candidato 1
+     * Prueba 2 - Ingresar voto influenciado por la televisión a los candidatos.
      */
-    public void testIngresarVotoTelevisionCandidato1( )
+    public void testIngresarVotoTelevision( )
     {
         setupEscenario1( );
-        urna.ingresarVotoTelevisionCandidato1( );
+
+        urna.ingresarVotoTelevision( urna.darCandidato1() );
+        urna.ingresarVotoTelevision( urna.darCandidato2() );
+        urna.ingresarVotoTelevision( urna.darCandidato3() );
+
         assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato1( ).getVotos( ) == 1 );
         assertTrue( "Debería aumentar el costo de campaña en 1000", urna.darCandidato1( ).getCostoCampanha( ) == 1000 );
-    }
 
-    /**
-     * Prueba 3 - Ingresar voto influenciado por la radio al candidato 1
-     */
-    public void testIngresarVotoRadioCandidato1( )
-    {
-        setupEscenario1( );
-        urna.ingresarVotoRadioCandidato1( );
-        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato1( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 500", urna.darCandidato1( ).getCostoCampanha( ) == 500 );
-    }
-
-    /**
-     * Prueba 4 - Ingresar voto influenciado por Internet al candidato 1
-     */
-    public void testIngresarVotoInternetCandidato1( )
-    {
-        setupEscenario1( );
-        urna.ingresarVotoInternetCandidato1( );
-        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato1( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 100", urna.darCandidato1( ).getCostoCampanha( ) == 100 );
-    }
-
-    /**
-     * Prueba 5 - Ingresar voto influenciado por la televisión al candidato 2
-     */
-    public void testIngresarVotoTelevisionCandidato2( )
-    {
-        setupEscenario1( );
-        urna.ingresarVotoTelevisionCandidato2( );
         assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato2( ).getVotos( ) == 1 );
         assertTrue( "Debería aumentar el costo de campaña en 1000", urna.darCandidato2( ).getCostoCampanha( ) == 1000 );
-    }
 
-    /**
-     * Prueba 6 - Ingresar voto influenciado por la radio al candidato 2
-     */
-    public void testIngresarVotoRadioCandidato2( )
-    {
-        setupEscenario1( );
-        urna.ingresarVotoRadioCandidato2( );
-        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato2( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 500", urna.darCandidato2( ).getCostoCampanha( ) == 500 );
-    }
-
-    /**
-     * Prueba 7 - Ingresar voto influenciado por Internet al candidato 2
-     */
-    public void testIngresarVotoInternetCandidato2( )
-    {
-        setupEscenario1( );
-        urna.ingresarVotoInternetCandidato2( );
-        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato2( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 100", urna.darCandidato2( ).getCostoCampanha( ) == 100 );
-    }
-
-    /**
-     * Prueba 8 - Ingresar voto influenciado por la televisión al candidato 3
-     */
-    public void testIngresarVotoTelevisionCandidato3( )
-    {
-        setupEscenario1( );
-        urna.ingresarVotoTelevisionCandidato3( );
         assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato3( ).getVotos( ) == 1 );
         assertTrue( "Debería aumentar el costo de campaña en 1000", urna.darCandidato3( ).getCostoCampanha( ) == 1000 );
     }
 
     /**
-     * Prueba 9 - Ingresar voto influenciado por la radio al candidato 3
+     * Prueba 3 - Ingresar voto influenciado por la radio a los candidatos.
      */
-    public void testIngresarVotoRadioCandidato3( )
+    public void testIngresarVotoRadio( )
     {
         setupEscenario1( );
-        urna.ingresarVotoRadioCandidato3( );
+
+        urna.ingresarVotoRadio( urna.darCandidato1() );
+        urna.ingresarVotoRadio( urna.darCandidato2() );
+        urna.ingresarVotoRadio( urna.darCandidato3() );
+
+        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato1( ).getVotos( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 500", urna.darCandidato1( ).getCostoCampanha( ) == 500 );
+
+        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato2( ).getVotos( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 500", urna.darCandidato2( ).getCostoCampanha( ) == 500 );
+
         assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato3( ).getVotos( ) == 1 );
         assertTrue( "Debería aumentar el costo de campaña en 500", urna.darCandidato3( ).getCostoCampanha( ) == 500 );
     }
 
     /**
-     * Prueba 10 - Ingresar voto influenciado por Internet al candidato 3
+     * Prueba 4 - Ingresar voto influenciado por Internet a los candidatos.
      */
-    public void testIngresarVotoInternetCandidato3( )
+    public void testIngresarVotoInternet( )
     {
         setupEscenario1( );
-        urna.ingresarVotoInternetCandidato3( );
+
+        urna.ingresarVotoInternet( urna.darCandidato1() );
+        urna.ingresarVotoInternet( urna.darCandidato2() );
+        urna.ingresarVotoInternet( urna.darCandidato3() );
+
+        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato1( ).getVotos( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 100", urna.darCandidato1( ).getCostoCampanha( ) == 100 );
+
+        assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato2( ).getVotos( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 100", urna.darCandidato2( ).getCostoCampanha( ) == 100 );
+
         assertTrue( "Debería aumentar el número de votos en 1", urna.darCandidato3( ).getVotos( ) == 1 );
         assertTrue( "Debería aumentar el costo de campaña en 100", urna.darCandidato3( ).getCostoCampanha( ) == 100 );
     }
