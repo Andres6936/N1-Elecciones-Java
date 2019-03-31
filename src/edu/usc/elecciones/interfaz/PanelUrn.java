@@ -17,7 +17,7 @@ import edu.usc.elecciones.mundo.Urn;
  * Panel que contiene la información de la urna de votos en las elecciones cupi2
  */
 @SuppressWarnings("serial")
-public class PanelUrna extends JPanel
+public class PanelUrn extends JPanel
 {
     // -----------------------------------------------------------------
     // Atributos de la interfaz
@@ -40,7 +40,7 @@ public class PanelUrna extends JPanel
     /**
      * Constructor del panel
      */
-    public PanelUrna( )
+    public PanelUrn( )
     {
         setBorder( new TitledBorder( "Totales" ) );
         setLayout( new GridLayout( 2, 1 ) );

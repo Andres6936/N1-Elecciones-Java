@@ -10,7 +10,7 @@ import edu.usc.elecciones.mundo.Candidate;
 import edu.usc.elecciones.mundo.Urn;
 
 @SuppressWarnings( "serial" )
-public class InterfazElecciones extends JFrame
+public class InterfaceElections extends JFrame
 {
     // -----------------------------------------------------------------
     // Atributos
@@ -28,27 +28,27 @@ public class InterfazElecciones extends JFrame
     /**
      * Panel con la imagen
      */
-    private PanelImagen panelImagen;
+    private PanelImage panelImage;
 
     /**
      * Panel del candidato 1.
      */
-    private PanelCandidato panelCandidato1;
+    private PanelCandidate panelCandidate1;
 
     /**
      * Panel del candidato 2.
      */
-    private PanelCandidato panelCandidato2;
+    private PanelCandidate panelCandidate2;
 
     /**
      * Panel del candidato 3.
      */
-    private PanelCandidato panelCandidato3;
+    private PanelCandidate panelCandidate3;
 
     /**
      * Panel con los totales de la urna.
      */
-    private PanelUrna panelUrna;
+    private PanelUrn panelUrn;
 
     /**
      * Panel con las extensiones
@@ -62,7 +62,7 @@ public class InterfazElecciones extends JFrame
     /**
      * Constructor donde se arma la interfaz.
      */
-    public InterfazElecciones( )
+    public InterfaceElections( )
     {
         // Crea la clase principal
         urn = new Urn( );
@@ -90,8 +90,8 @@ public class InterfazElecciones extends JFrame
         // Creación de los paneles aquí
 
         // Panel imagen
-        panelImagen = new PanelImagen( );
-        getContentPane( ).add( panelImagen, BorderLayout.NORTH );
+        panelImage = new PanelImage( );
+        getContentPane( ).add( panelImage, BorderLayout.NORTH );
 
         // Construye el panel con los tres candidatos
 
@@ -103,18 +103,18 @@ public class InterfazElecciones extends JFrame
         ImageIcon imageClaire = new ImageIcon( "data/Claire.jpg" );
         ImageIcon imageObama = new ImageIcon( "data/Obama.jpg" );
 
-        panelCandidato1 = new PanelCandidato( this, urn.darCandidato1(), imageFrancis );
-        panelCandidatos.add( panelCandidato1 );
-        panelCandidato2 = new PanelCandidato( this, urn.darCandidato2(), imageClaire );
-        panelCandidatos.add( panelCandidato2 );
-        panelCandidato3 = new PanelCandidato( this, urn.darCandidato3(), imageObama );
-        panelCandidatos.add( panelCandidato3 );
+        panelCandidate1 = new PanelCandidate( this, urn.darCandidato1(), imageFrancis );
+        panelCandidatos.add( panelCandidate1 );
+        panelCandidate2 = new PanelCandidate( this, urn.darCandidato2(), imageClaire );
+        panelCandidatos.add( panelCandidate2 );
+        panelCandidate3 = new PanelCandidate( this, urn.darCandidato3(), imageObama );
+        panelCandidatos.add( panelCandidate3 );
 
         JPanel panelInferior = new JPanel( );
         panelInferior.setLayout( new BorderLayout( ) );
         getContentPane( ).add( panelInferior, BorderLayout.SOUTH );
-        panelUrna = new PanelUrna( );
-        panelInferior.add( panelUrna, BorderLayout.CENTER );
+        panelUrn = new PanelUrn( );
+        panelInferior.add( panelUrn, BorderLayout.CENTER );
         panelExtension = new PanelExtension( this );
         panelInferior.add( panelExtension, BorderLayout.SOUTH );
         setLocationRelativeTo( null );
@@ -214,11 +214,11 @@ public class InterfazElecciones extends JFrame
     /**
      * Este método ejecuta la aplicación, creando una nueva interfaz
      *
-     * @param args
+     * @param args Application arguments.
      */
     public static void main( String[] args )
     {
-        InterfazElecciones interfaz = new InterfazElecciones( );
+        InterfaceElections interfaz = new InterfaceElections( );
         interfaz.setVisible( true );
     }
 
@@ -228,10 +228,10 @@ public class InterfazElecciones extends JFrame
      */
     private void actualizar( )
     {
-        panelCandidato1.actualizar( urn.darCandidato1( ) );
-        panelCandidato2.actualizar( urn.darCandidato2( ) );
-        panelCandidato3.actualizar( urn.darCandidato3( ) );
-        panelUrna.actualizar( urn );
+        panelCandidate1.actualizar( urn.darCandidato1( ) );
+        panelCandidate2.actualizar( urn.darCandidato2( ) );
+        panelCandidate3.actualizar( urn.darCandidato3( ) );
+        panelUrn.actualizar( urn );
     }
 
     /**

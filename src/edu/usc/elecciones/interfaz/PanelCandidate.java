@@ -20,7 +20,7 @@ import edu.usc.elecciones.mundo.Candidate;
  * Panel que contiene la información de un candidato.
  */
 @SuppressWarnings("serial")
-public class PanelCandidato extends JPanel implements ActionListener
+public class PanelCandidate extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
     // Constantes
@@ -43,7 +43,7 @@ public class PanelCandidato extends JPanel implements ActionListener
     /**
      * Ventana principal de la aplicación
      */
-    private InterfazElecciones principal;
+    private InterfaceElections principal;
 
     /**
      * Candidato que representará el panel.
@@ -103,7 +103,7 @@ public class PanelCandidato extends JPanel implements ActionListener
      * @param laPrincipal Ventana principal. laPrincipal != null.
      * @param nCandidate Número del candidato.
      */
-    public PanelCandidato( InterfazElecciones laPrincipal, Candidate nCandidate, ImageIcon icon )
+    public PanelCandidate( InterfaceElections laPrincipal, Candidate nCandidate, ImageIcon icon )
     {
         principal = laPrincipal;
         candidate = nCandidate;

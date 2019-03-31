@@ -40,7 +40,7 @@ public class PanelExtension extends JPanel implements ActionListener
     /**
      * Ventana principal de la aplicación
      */
-    private InterfazElecciones principal;
+    private InterfaceElections principal;
 
     // -----------------------------------------------------------------
     // Atributos de interfaz
@@ -69,7 +69,7 @@ public class PanelExtension extends JPanel implements ActionListener
      * Constructor del panel
      * @param ventana Ventana principal
      */
-    public PanelExtension( InterfazElecciones ventana )
+    public PanelExtension( InterfaceElections ventana )
     {
         principal = ventana;
 

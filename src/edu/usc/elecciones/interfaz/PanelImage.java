@@ -11,7 +11,7 @@ import javax.swing.JPanel;
  * Panel con la imagen.
  */
 @SuppressWarnings("serial")
-public class PanelImagen extends JPanel
+public class PanelImage extends JPanel
 {
     // -----------------------------------------------------------------
     // Atributos de Interfaz
@@ -29,7 +29,7 @@ public class PanelImagen extends JPanel
     /**
      * Constructor del Panel
      */
-    public PanelImagen( )
+    public PanelImage( )
     {
         setLayout( new BorderLayout( ) );
         setBackground( Color.WHITE );
