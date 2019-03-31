@@ -19,7 +19,7 @@ import edu.usc.elecciones.mundo.Candidate;
 /**
  * Panel que contiene la información de un candidato.
  */
-@SuppressWarnings("serial")
+@SuppressWarnings( "serial" )
 public class PanelCandidate extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
@@ -100,8 +100,9 @@ public class PanelCandidate extends JPanel implements ActionListener
 
     /**
      * Constructor del panel
+     *
      * @param laPrincipal Ventana principal. laPrincipal != null.
-     * @param nCandidate Número del candidato.
+     * @param nCandidate  Número del candidato.
      */
     public PanelCandidate( InterfaceElections laPrincipal, Candidate nCandidate, ImageIcon icon )
     {
@@ -144,7 +145,7 @@ public class PanelCandidate extends JPanel implements ActionListener
         panelInformacion.setBackground( Color.WHITE );
 
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidate.getNombre() ) );
+        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidate.getNombre( ) ) );
         setBackground( Color.WHITE );
 
         add( panelImagen, java.awt.BorderLayout.CENTER );
@@ -182,6 +183,7 @@ public class PanelCandidate extends JPanel implements ActionListener
 
     /**
      * Actualiza la visualización de la información
+     *
      * @param candidate Candidato de donde se saca la información. candidato != null.
      */
     public void actualizar( Candidate candidate )
@@ -193,24 +195,25 @@ public class PanelCandidate extends JPanel implements ActionListener
         etiquetaCostoCampanhaCandidato.setText( "Costo Campaña: $" + formatearValorReal( candidate.getCostoCampanha( ) ) );
         etiquetaNumeroVotos.setText( "Numero de Votos: " + candidate.getVotos( ) );
 
-        if( principal.darTotalVotosUrna( ) == 0 )
-            botonDarPorcentajeVotos.setEnabled( false );
+        if ( principal.darTotalVotosUrna( ) == 0 )
+        { botonDarPorcentajeVotos.setEnabled( false ); }
         else
-            botonDarPorcentajeVotos.setEnabled( true );
+        { botonDarPorcentajeVotos.setEnabled( true ); }
 
     }
 
     /**
      * Manejo de eventos del usuario
+     *
      * @param e Evento de usuario. e != null.
      */
     public void actionPerformed( ActionEvent e )
     {
-        if( VOTAR.equals( e.getActionCommand( ) ) )
+        if ( VOTAR.equals( e.getActionCommand( ) ) )
         {
             principal.adicionarVotoCandidato( candidate );
         }
-        else if( PORCENTAJE_VOTOS.equals( e.getActionCommand( ) ) )
+        else if ( PORCENTAJE_VOTOS.equals( e.getActionCommand( ) ) )
         {
             principal.mostrarDialogoPorcentajeVotos( candidate );
         }
@@ -219,12 +222,13 @@ public class PanelCandidate extends JPanel implements ActionListener
 
     /**
      * Formatea un valor numérico real para presentar en la interfaz <br>
+     *
      * @param valor El valor numérico a ser formateado
      * @return Cadena con el valor formateado con puntos y signos.
      */
     private String formatearValorReal( double valor )
     {
-        DecimalFormat df = ( DecimalFormat )NumberFormat.getInstance( );
+        DecimalFormat df = ( DecimalFormat ) NumberFormat.getInstance( );
         df.applyPattern( " ###,###.##" );
         df.setMinimumFractionDigits( 2 );
         return df.format( valor );

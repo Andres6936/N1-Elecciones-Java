@@ -62,7 +62,7 @@ public class InterfaceElections extends JFrame
     /**
      * Constructor donde se arma la interfaz.
      */
-    public InterfaceElections( )
+    private InterfaceElections( )
     {
         // Crea la clase principal
         urn = new Urn( );
@@ -103,11 +103,11 @@ public class InterfaceElections extends JFrame
         ImageIcon imageClaire = new ImageIcon( "data/Claire.jpg" );
         ImageIcon imageObama = new ImageIcon( "data/Obama.jpg" );
 
-        panelCandidate1 = new PanelCandidate( this, urn.darCandidato1(), imageFrancis );
+        panelCandidate1 = new PanelCandidate( this, urn.darCandidato1( ), imageFrancis );
         panelCandidatos.add( panelCandidate1 );
-        panelCandidate2 = new PanelCandidate( this, urn.darCandidato2(), imageClaire );
+        panelCandidate2 = new PanelCandidate( this, urn.darCandidato2( ), imageClaire );
         panelCandidatos.add( panelCandidate2 );
-        panelCandidate3 = new PanelCandidate( this, urn.darCandidato3(), imageObama );
+        panelCandidate3 = new PanelCandidate( this, urn.darCandidato3( ), imageObama );
         panelCandidatos.add( panelCandidate3 );
 
         JPanel panelInferior = new JPanel( );
@@ -129,6 +129,7 @@ public class InterfaceElections extends JFrame
     /**
      * Adiciona un voto a un candidato dependiendo del medio que más
      * influenció el voto.
+     *
      * @param candidate Candidato a adicionar el voto
      */
     public void adicionarVotoCandidato( Candidate candidate )
@@ -173,7 +174,7 @@ public class InterfaceElections extends JFrame
      */
     public void mostrarDialogoPorcentajeVotos( Candidate candidate )
     {
-        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getNombre(), JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getNombre( ), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**

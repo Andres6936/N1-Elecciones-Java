@@ -10,7 +10,7 @@ import javax.swing.JPanel;
 /**
  * Panel con la imagen.
  */
-@SuppressWarnings("serial")
+@SuppressWarnings( "serial" )
 public class PanelImage extends JPanel
 {
     // -----------------------------------------------------------------

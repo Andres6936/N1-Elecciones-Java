@@ -16,7 +16,7 @@ import edu.usc.elecciones.mundo.Urn;
 /**
  * Panel que contiene la información de la urna de votos en las elecciones cupi2
  */
-@SuppressWarnings("serial")
+@SuppressWarnings( "serial" )
 public class PanelUrn extends JPanel
 {
     // -----------------------------------------------------------------
@@ -69,6 +69,7 @@ public class PanelUrn extends JPanel
 
     /**
      * Actualiza la información
+     *
      * @param urn Urna de la cual se va a mostrar la información. urna != null.
      */
     public void actualizar( Urn urn )
@@ -80,12 +81,13 @@ public class PanelUrn extends JPanel
 
     /**
      * Formatea un valor numérico real para presentar en la interfaz <br>
+     *
      * @param valor El valor numérico a ser formateado
      * @return Cadena con el valor formateado con puntos y signos.
      */
     private String formatearValorReal( double valor )
     {
-        DecimalFormat df = ( DecimalFormat )NumberFormat.getInstance( );
+        DecimalFormat df = ( DecimalFormat ) NumberFormat.getInstance( );
         df.applyPattern( " ###,###.##" );
         df.setMinimumFractionDigits( 2 );
         return df.format( valor );

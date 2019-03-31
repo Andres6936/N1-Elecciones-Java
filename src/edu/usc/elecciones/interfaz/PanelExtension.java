@@ -11,7 +11,7 @@ import javax.swing.border.TitledBorder;
 /**
  * Panel de manejo de extensiones.
  */
-@SuppressWarnings("serial")
+@SuppressWarnings( "serial" )
 public class PanelExtension extends JPanel implements ActionListener
 {
     // -----------------------------------------------------------------
@@ -67,6 +67,7 @@ public class PanelExtension extends JPanel implements ActionListener
 
     /**
      * Constructor del panel
+     *
      * @param ventana Ventana principal
      */
     public PanelExtension( InterfaceElections ventana )
@@ -108,19 +109,20 @@ public class PanelExtension extends JPanel implements ActionListener
 
     /**
      * Manejo de los eventos de los botones
+     *
      * @param e Acción que generó el evento.
      */
     public void actionPerformed( ActionEvent e )
     {
-        if( OPCION_1.equals( e.getActionCommand( ) ) )
+        if ( OPCION_1.equals( e.getActionCommand( ) ) )
         {
             principal.reqFuncOpcion1( );
         }
-        else if( OPCION_2.equals( e.getActionCommand( ) ) )
+        else if ( OPCION_2.equals( e.getActionCommand( ) ) )
         {
             principal.reqFuncOpcion2( );
         }
-        else if( VACIAR_URNA.equals( e.getActionCommand( ) ) )
+        else if ( VACIAR_URNA.equals( e.getActionCommand( ) ) )
         {
 
             principal.vaciarUrna( );
