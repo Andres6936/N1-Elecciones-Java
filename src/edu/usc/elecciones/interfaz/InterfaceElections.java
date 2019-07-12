@@ -102,11 +102,11 @@ public class InterfaceElections extends JFrame
         ImageIcon imageClaire = new ImageIcon( "data/Claire.jpg" );
         ImageIcon imageObama = new ImageIcon( "data/Obama.jpg" );
 
-        panelCandidate1 = new PanelCandidate( this, urn.darCandidato1( ), imageFrancis );
+        panelCandidate1 = new PanelCandidate( this, urn.getFrank( ), imageFrancis );
         panelCandidatos.add( panelCandidate1 );
-        panelCandidate2 = new PanelCandidate( this, urn.darCandidato2( ), imageClaire );
+        panelCandidate2 = new PanelCandidate( this, urn.getClaire( ), imageClaire );
         panelCandidatos.add( panelCandidate2 );
-        panelCandidate3 = new PanelCandidate( this, urn.darCandidato3( ), imageObama );
+        panelCandidate3 = new PanelCandidate( this, urn.getBarack( ), imageObama );
         panelCandidatos.add( panelCandidate3 );
 
         JPanel panelInferior = new JPanel( );
@@ -141,15 +141,15 @@ public class InterfaceElections extends JFrame
         {
             if ( influencia.equals( "Televisión" ) )
             {
-                urn.ingresarVotoTelevision( candidate );
+                urn.addVoteTelevision( candidate );
             }
             else if ( influencia.equals( "Radio" ) )
             {
-                urn.ingresarVotoRadio( candidate );
+                urn.addVoteRadio( candidate );
             }
             else if ( influencia.equals( "Internet" ) )
             {
-                urn.ingresarVotoInternet( candidate );
+                urn.addVoteInternet( candidate );
             }
         }
         actualizar( );
@@ -161,7 +161,7 @@ public class InterfaceElections extends JFrame
      */
     public void vaciarUrna( )
     {
-        urn.vaciarUrna( );
+        urn.clearUrn( );
         actualizar( );
 
     }
@@ -173,7 +173,7 @@ public class InterfaceElections extends JFrame
      */
     public void mostrarDialogoPorcentajeVotos( Candidate candidate )
     {
-        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getName( ), JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calculatePercentageVotes( candidate ) ) + " %", "Candidato " + candidate.getName( ), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**
@@ -183,7 +183,7 @@ public class InterfaceElections extends JFrame
      */
     public int darTotalVotosUrna( )
     {
-        return urn.calcularTotalVotos( );
+        return urn.calculateTotalVotes( );
     }
     // -----------------------------------------------------------------
     // Puntos de Extensión
@@ -194,7 +194,7 @@ public class InterfaceElections extends JFrame
      */
     public void reqFuncOpcion1( )
     {
-        String resultado = urn.metodo1( );
+        String resultado = urn.method1( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -203,7 +203,7 @@ public class InterfaceElections extends JFrame
      */
     public void reqFuncOpcion2( )
     {
-        String resultado = urn.metodo2( );
+        String resultado = urn.method2( );
         JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
@@ -228,9 +228,9 @@ public class InterfaceElections extends JFrame
      */
     private void actualizar( )
     {
-        panelCandidate1.actualizar( urn.darCandidato1( ) );
-        panelCandidate2.actualizar( urn.darCandidato2( ) );
-        panelCandidate3.actualizar( urn.darCandidato3( ) );
+        panelCandidate1.actualizar( urn.getFrank( ) );
+        panelCandidate2.actualizar( urn.getClaire( ) );
+        panelCandidate3.actualizar( urn.getBarack( ) );
         panelUrn.actualizar( urn );
     }
 

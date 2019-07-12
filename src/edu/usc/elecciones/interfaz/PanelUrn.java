@@ -74,8 +74,8 @@ public class PanelUrn extends JPanel
      */
     public void actualizar( Urn urn )
     {
-        etiquetaTotalVotos.setText( "Total Votos: " + urn.calcularTotalVotos( ) );
-        etiquetaPromedioCostoCampanha.setText( "Costo Promedio Campaña: $" + formatearValorReal( urn.calcularCostoPromedioCampanha( ) ) );
+        etiquetaTotalVotos.setText( "Total Votos: " + urn.calculateTotalVotes( ) );
+        etiquetaPromedioCostoCampanha.setText( "Costo Promedio Campaña: $" + formatearValorReal( urn.calculateAverageCampaignCost( ) ) );
 
     }
 

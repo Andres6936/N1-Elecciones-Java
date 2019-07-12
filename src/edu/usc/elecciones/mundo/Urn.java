@@ -1,7 +1,7 @@
 package edu.usc.elecciones.mundo;
 
 /**
- * Es la una urna de votación con tres candidatos.
+ * It's a voting box with three candidates.
  */
 public class Urn
 {
@@ -11,39 +11,39 @@ public class Urn
     // -----------------------------------------------------------------
 
     /**
-     * El candidato número 1 de la elecciones
+     * Candidate in the position number 1 in the election.
      */
-    private Candidate candidate1;
+    private Candidate frank;
 
     /**
-     * El candidato número 2 de la elecciones
+     * Candidate in the position number 2 in the election.
      */
-    private Candidate candidate2;
+    private Candidate claire;
 
     /**
-     * El candidato número 3 de la elecciones
+     * Candidate in the position number 3 in the election.
      */
-    private Candidate candidate3;
+    private Candidate barack;
 
     // -----------------------------------------------------------------
     // Constructs
     // -----------------------------------------------------------------
 
     /**
-     * Inicializa los tres candidatos<br>
-     * <b>post: </b> Se inicializaron los tres candidatos con los valores por parámetro
-     * nombre, apellido, partido político y edad.
+     * Initializes the three candidates.<br>
+     * <b>post: </b> The three candidates were initialised with the values per parameter
+     * name, last name, political party and age.
      */
     public Urn()
     {
         // Inicializa el candidato 1
-        candidate1 = new Candidate( "Frank", "Underwood", "Independiente", 27 );
+        frank = new Candidate( "Frank", "Underwood", "Independiente", 27 );
 
         // Inicializa el candidato 2
-        candidate2 = new Candidate( "Claire", "Underwood", "Revolucionario", 26 );
+        claire = new Candidate( "Claire", "Underwood", "Revolucionario", 26 );
 
         // Inicializa el candidato 3
-        candidate3 = new Candidate( "Barack", "Obama", "Tradicional", 26 );
+        barack = new Candidate( "Barack", "Obama", "Tradicional", 26 );
     }
 
     // -----------------------------------------------------------------
@@ -51,141 +51,141 @@ public class Urn
     // -----------------------------------------------------------------
 
     /**
-     * Devuelve el candidato 1
+     * Return candidate Frank.
      *
-     * @return Candidato 1
+     * @return Candidate Frank.
      */
-    public Candidate darCandidato1( )
+    public Candidate getFrank( )
     {
-        return candidate1;
+        return frank;
     }
 
     /**
-     * Devuelve el candidato 2
+     * Return candidate Claire.
      *
-     * @return Candidato 2
+     * @return Candidate Claire.
      */
-    public Candidate darCandidato2( )
+    public Candidate getClaire( )
     {
-        return candidate2;
+        return claire;
     }
 
     /**
-     * Devuelve el candidato 3
+     * Return candidate Barack.
      *
-     * @return Candidato 3
+     * @return Candidate Barack.
      */
-    public Candidate darCandidato3( )
+    public Candidate getBarack( )
     {
-        return candidate3;
+        return barack;
     }
 
 
     /**
-     * Ingresa un voto influenciado por la televisión al candidato.
+     * Add a television-influenced vote to the candidate.
      *
-     * @param candidate Candidato a aumentar el voto.
+     * @param candidate Candidate to increase the vote.
      */
-    public void ingresarVotoTelevision( Candidate candidate )
+    public void addVoteTelevision( Candidate candidate )
     {
         candidate.addVoteTelevision( );
     }
 
     /**
-     * Ingresa un voto influenciado por la radio al candidato.
+     * Add a radio-influenced vote to the candidate.
      *
-     * @param candidate Candidato a aumentar el voto.
+     * @param candidate Candidate to increase the vote.
      */
-    public void ingresarVotoRadio( Candidate candidate )
+    public void addVoteRadio( Candidate candidate )
     {
         candidate.addVoteRadio( );
     }
 
     /**
-     * Incresa un voto influenciado por la internet al candidato.
+     * Add an Internet-influenced vote to the candidate.
      *
-     * @param candidate Candidato a aumentar el voto.
+     * @param candidate Candidate to increase the vote.
      */
-    public void ingresarVotoInternet( Candidate candidate )
+    public void addVoteInternet( Candidate candidate )
     {
         candidate.addVoteInternet( );
     }
 
     /**
-     * Devuelve el total de votos en la urna
+     * Returns the total number of votes in the urn.
      *
-     * @return La sumatoria de los votos de los tres candidatos
+     * @return The sum of the votes of the three candidates
      */
-    public int calcularTotalVotos( )
+    public int calculateTotalVotes( )
     {
-        return candidate1.getVotes( ) + candidate2.getVotes( ) + candidate3.getVotes( );
+        return frank.getVotes( ) + claire.getVotes( ) + barack.getVotes( );
     }
 
     /**
-     * Devuelve el costo promedio de campaña de los candidatos
+     * Returns the candidates' average campaign cost.
      *
-     * @return La razón de la sumatoria de los costos de campaña de los candidatos y el número total de candidatos.
+     * @return The reason for the sum of the candidates' campaign costs and the total number of candidates.
      */
-    public double calcularCostoPromedioCampanha( )
+    public double calculateAverageCampaignCost( )
     {
-        double total = candidate1.getCostCampaign( ) + candidate2.getCostCampaign( ) + candidate3.getCostCampaign( );
+        double total = frank.getCostCampaign( ) + claire.getCostCampaign( ) + barack.getCostCampaign( );
 
         return total / 3;
     }
 
     /**
-     * Devuelve el porcentaje de votos obtenidos por el candidato.
+     * Returns the percentage of votes obtained by the candidate.
      *
-     * @param candidate Candidato del cual se va a calcular su porcentaje de votos.
-     * @return Porcentje de votos obtenidos por el candidato.
+     * @param candidate Candidate whose percentage of votes will be calculated.
+     * @return Percentage of votes obtained by the candidate.
      */
-    public double calcularPorcentajeVotos( Candidate candidate )
+    public double calculatePercentageVotes( Candidate candidate )
     {
         double numeroVotosCandidato = candidate.getVotes( );
-        double votosTotales = calcularTotalVotos( );
+        double votosTotales = calculateTotalVotes( );
 
         return numeroVotosCandidato / votosTotales * 100;
     }
 
     /**
-     * Restaura la urna al estado inicial, todos los candidatos quedan sin votos y costo de campaña en 0
+     * Restores the urn to the initial state, all candidates are left without votes and campaign cost at 0.
      */
-    public void vaciarUrna( )
+    public void clearUrn( )
     {
 
-        // Reiniciar candidato 1
-        candidate1.restartVoteCount( );
-        candidate1.restartCostCampaign( );
+        // Restart candidate Frank.
+        frank.restartVoteCount( );
+        frank.restartCostCampaign( );
 
-        // Reiniciar candidato 2
-        candidate2.restartVoteCount( );
-        candidate2.restartCostCampaign( );
+        // Restart candidate Claire.
+        claire.restartVoteCount( );
+        claire.restartCostCampaign( );
 
-        // Reiniciar candidato 3
-        candidate3.restartVoteCount( );
-        candidate3.restartCostCampaign( );
+        // Restart candidate Barack.
+        barack.restartVoteCount( );
+        barack.restartCostCampaign( );
     }
 
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Extension Points
     // -----------------------------------------------------------------
 
     /**
-     * Método para la extensión 1
+     * Method for Extension 1.
      *
-     * @return respuesta1
+     * @return answer.
      */
-    public String metodo1( )
+    public String method1( )
     {
         return "Respuesta 1";
     }
 
     /**
-     * Método para la extensión2
+     * Method for Extension 2.
      *
-     * @return respuesta2
+     * @return answer.
      */
-    public String metodo2( )
+    public String method2( )
     {
         return "Respuesta 2";
     }
