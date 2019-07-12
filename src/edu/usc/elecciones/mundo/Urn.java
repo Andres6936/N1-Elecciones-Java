@@ -7,7 +7,7 @@ public class Urn
 {
 
     // -----------------------------------------------------------------
-    // Atributos
+    // Fields
     // -----------------------------------------------------------------
 
     /**
@@ -26,7 +26,7 @@ public class Urn
     private Candidate candidate3;
 
     // -----------------------------------------------------------------
-    // Métodos
+    // Constructs
     // -----------------------------------------------------------------
 
     /**
@@ -34,9 +34,8 @@ public class Urn
      * <b>post: </b> Se inicializaron los tres candidatos con los valores por parámetro
      * nombre, apellido, partido político y edad.
      */
-    public void inicializar( )
+    public Urn()
     {
-
         // Inicializa el candidato 1
         candidate1 = new Candidate( "Frank", "Underwood", "Independiente", 27 );
 
@@ -46,6 +45,10 @@ public class Urn
         // Inicializa el candidato 3
         candidate3 = new Candidate( "Barack", "Obama", "Tradicional", 26 );
     }
+
+    // -----------------------------------------------------------------
+    // Methods
+    // -----------------------------------------------------------------
 
     /**
      * Devuelve el candidato 1

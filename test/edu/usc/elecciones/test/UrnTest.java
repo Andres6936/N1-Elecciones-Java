@@ -26,7 +26,6 @@ public class UrnTest extends TestCase
     private void setupEscenario1( )
     {
         urn = new Urn( );
-        urn.inicializar( );
     }
 
     /**
@@ -35,7 +34,6 @@ public class UrnTest extends TestCase
     private void setupEscenario2( )
     {
         urn = new Urn( );
-        urn.inicializar( );
 
         urn.ingresarVotoTelevision( urn.darCandidato1() );
         urn.ingresarVotoTelevision( urn.darCandidato2() );

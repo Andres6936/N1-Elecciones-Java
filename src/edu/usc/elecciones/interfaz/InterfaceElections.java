@@ -66,7 +66,6 @@ public class InterfaceElections extends JFrame
     {
         // Crea la clase principal
         urn = new Urn( );
-        urn.inicializar( );
 
         // Construye la forma
         setTitle( "Elecciones Usaca" );
