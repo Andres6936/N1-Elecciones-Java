@@ -70,14 +70,14 @@ public class UrnTest extends TestCase
         urn.ingresarVotoTelevision( urn.darCandidato2() );
         urn.ingresarVotoTelevision( urn.darCandidato3() );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato1( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 1000", urn.darCandidato1( ).getCostoCampanha( ) == 1000 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato1( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 1000", urn.darCandidato1( ).getCostCampaign( ) == 1000 );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato2( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 1000", urn.darCandidato2( ).getCostoCampanha( ) == 1000 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato2( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 1000", urn.darCandidato2( ).getCostCampaign( ) == 1000 );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato3( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 1000", urn.darCandidato3( ).getCostoCampanha( ) == 1000 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato3( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 1000", urn.darCandidato3( ).getCostCampaign( ) == 1000 );
     }
 
     /**
@@ -91,14 +91,14 @@ public class UrnTest extends TestCase
         urn.ingresarVotoRadio( urn.darCandidato2() );
         urn.ingresarVotoRadio( urn.darCandidato3() );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato1( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 500", urn.darCandidato1( ).getCostoCampanha( ) == 500 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato1( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 500", urn.darCandidato1( ).getCostCampaign( ) == 500 );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato2( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 500", urn.darCandidato2( ).getCostoCampanha( ) == 500 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato2( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 500", urn.darCandidato2( ).getCostCampaign( ) == 500 );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato3( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 500", urn.darCandidato3( ).getCostoCampanha( ) == 500 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato3( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 500", urn.darCandidato3( ).getCostCampaign( ) == 500 );
     }
 
     /**
@@ -112,14 +112,14 @@ public class UrnTest extends TestCase
         urn.ingresarVotoInternet( urn.darCandidato2() );
         urn.ingresarVotoInternet( urn.darCandidato3() );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato1( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 100", urn.darCandidato1( ).getCostoCampanha( ) == 100 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato1( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 100", urn.darCandidato1( ).getCostCampaign( ) == 100 );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato2( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 100", urn.darCandidato2( ).getCostoCampanha( ) == 100 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato2( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 100", urn.darCandidato2( ).getCostCampaign( ) == 100 );
 
-        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato3( ).getVotos( ) == 1 );
-        assertTrue( "Debería aumentar el costo de campaña en 100", urn.darCandidato3( ).getCostoCampanha( ) == 100 );
+        assertTrue( "Debería aumentar el número de votos en 1", urn.darCandidato3( ).getVotes( ) == 1 );
+        assertTrue( "Debería aumentar el costo de campaña en 100", urn.darCandidato3( ).getCostCampaign( ) == 100 );
     }
 
     /**
@@ -166,14 +166,14 @@ public class UrnTest extends TestCase
 
         urn.vaciarUrna( );
 
-        assertTrue( "No inicializa el número de votos a 0 del candidato 1", urn.darCandidato1( ).getVotos( ) == 0 );
-        assertTrue( "No inicializa el costo de campaña a 0 del candidato 1", urn.darCandidato1( ).getCostoCampanha( ) == 0 );
+        assertTrue( "No inicializa el número de votos a 0 del candidato 1", urn.darCandidato1( ).getVotes( ) == 0 );
+        assertTrue( "No inicializa el costo de campaña a 0 del candidato 1", urn.darCandidato1( ).getCostCampaign( ) == 0 );
 
-        assertTrue( "No inicializa el número de votos a 0 del candidato 2", urn.darCandidato2( ).getVotos( ) == 0 );
-        assertTrue( "No inicializa el costo de campaña a 0 del candidato 2", urn.darCandidato2( ).getCostoCampanha( ) == 0 );
+        assertTrue( "No inicializa el número de votos a 0 del candidato 2", urn.darCandidato2( ).getVotes( ) == 0 );
+        assertTrue( "No inicializa el costo de campaña a 0 del candidato 2", urn.darCandidato2( ).getCostCampaign( ) == 0 );
 
-        assertTrue( "No inicializa el número de votos a 0 del candidato 3", urn.darCandidato3( ).getVotos( ) == 0 );
-        assertTrue( "No inicializa el costo de campaña a 0 del candidato 3", urn.darCandidato3( ).getCostoCampanha( ) == 0 );
+        assertTrue( "No inicializa el número de votos a 0 del candidato 3", urn.darCandidato3( ).getVotes( ) == 0 );
+        assertTrue( "No inicializa el costo de campaña a 0 del candidato 3", urn.darCandidato3( ).getCostCampaign( ) == 0 );
 
     }
 }

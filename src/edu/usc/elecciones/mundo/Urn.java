@@ -88,7 +88,7 @@ public class Urn
      */
     public void ingresarVotoTelevision( Candidate candidate )
     {
-        candidate.agregarVotoTelevision( );
+        candidate.addVoteTelevision( );
     }
 
     /**
@@ -98,7 +98,7 @@ public class Urn
      */
     public void ingresarVotoRadio( Candidate candidate )
     {
-        candidate.agregarVotoRadio( );
+        candidate.addVoteRadio( );
     }
 
     /**
@@ -108,7 +108,7 @@ public class Urn
      */
     public void ingresarVotoInternet( Candidate candidate )
     {
-        candidate.agregarVotoInternet( );
+        candidate.addVoteInternet( );
     }
 
     /**
@@ -118,7 +118,7 @@ public class Urn
      */
     public int calcularTotalVotos( )
     {
-        return candidate1.getVotos( ) + candidate2.getVotos( ) + candidate3.getVotos( );
+        return candidate1.getVotes( ) + candidate2.getVotes( ) + candidate3.getVotes( );
     }
 
     /**
@@ -128,7 +128,7 @@ public class Urn
      */
     public double calcularCostoPromedioCampanha( )
     {
-        double total = candidate1.getCostoCampanha( ) + candidate2.getCostoCampanha( ) + candidate3.getCostoCampanha( );
+        double total = candidate1.getCostCampaign( ) + candidate2.getCostCampaign( ) + candidate3.getCostCampaign( );
 
         return total / 3;
     }
@@ -141,7 +141,7 @@ public class Urn
      */
     public double calcularPorcentajeVotos( Candidate candidate )
     {
-        double numeroVotosCandidato = candidate.getVotos( );
+        double numeroVotosCandidato = candidate.getVotes( );
         double votosTotales = calcularTotalVotos( );
 
         return numeroVotosCandidato / votosTotales * 100;
@@ -154,16 +154,16 @@ public class Urn
     {
 
         // Reiniciar candidato 1
-        candidate1.reiniciarConteoVotos( );
-        candidate1.reiniciarCostoCampanha( );
+        candidate1.restartVoteCount( );
+        candidate1.restartCostCampaign( );
 
         // Reiniciar candidato 2
-        candidate2.reiniciarConteoVotos( );
-        candidate2.reiniciarCostoCampanha( );
+        candidate2.restartVoteCount( );
+        candidate2.restartCostCampaign( );
 
         // Reiniciar candidato 3
-        candidate3.reiniciarConteoVotos( );
-        candidate3.reiniciarCostoCampanha( );
+        candidate3.restartVoteCount( );
+        candidate3.restartCostCampaign( );
     }
 
     // -----------------------------------------------------------------

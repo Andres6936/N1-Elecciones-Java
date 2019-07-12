@@ -173,7 +173,7 @@ public class InterfaceElections extends JFrame
      */
     public void mostrarDialogoPorcentajeVotos( Candidate candidate )
     {
-        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getNombre( ), JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calcularPorcentajeVotos( candidate ) ) + " %", "Candidato " + candidate.getName( ), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**

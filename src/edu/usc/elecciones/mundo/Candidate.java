@@ -1,180 +1,186 @@
 package edu.usc.elecciones.mundo;
 
 /**
- * Candidato de la elección.
+ * Candidate of the election.
  */
 public class Candidate
 {
     //-------------------------------------------
-    // Atributos
+    // Fields
     //-------------------------------------------
 
     /**
-     * Nombre del candidato.
+     * Candidate's name.
      */
-    private String nombre;
+    private String name;
 
     /**
-     * Apellido del candidato.
+     * Candidate's last name.
      */
-    private String apellido;
+    private String lastName;
 
     /**
-     * Partido político del candidato.
+     * Candidate's political party.
      */
-    private String partidoPolitico;
+    private String politicalParty;
 
     /**
-     * Edad del candidato.
+     * Candidate's age.
      */
-    private int edad;
+    private int age;
 
     /**
-     * Costo de campaña del candidato.
+     * Candidate's campaign cost.
      */
-    private double costoCampanha;
+    private double costCampaign;
 
     /**
-     * Número de votos del candidato.
+     * Number of votes of the candidate.
      */
-    private int votos;
+    private int votes;
 
     //-------------------------------------------
-    // Métodos
+    // Construct
     //-------------------------------------------
 
     /**
-     * Inicializa los datos del candidato con los valores que vienen por parámetro. <br>
-     * <b>post: </b> El costo de campaña se inicializó en cero.<br>
-     * El número de votos se inicializó en cero. <br>
+     * It initializes the applicant's data with the values that come by parameter.<br>
+     * <b>post: </b> The campaign cost was initialised at zero.<br>
+     * <b>post: </b> The number of votes was initialized to zero.<br>
      *
-     * @param nNombre          Nombre del candidato
-     * @param nApellido        Apellido del Candidato
-     * @param nPartidoPolitico Partido político del candidato
-     * @param nEdad            Edad del candidato
+     * @param nName             Candidate's name.
+     * @param nLastName         Candidate's last name.
+     * @param nPoliticalParty   Candidate's political party.
+     * @param nAge              Candidate's age.
      */
-    public Candidate( String nNombre, String nApellido, String nPartidoPolitico, int nEdad )
+    public Candidate( String nName, String nLastName, String nPoliticalParty, int nAge )
     {
-        nombre = nNombre;
-        apellido = nApellido;
-        partidoPolitico = nPartidoPolitico;
-        edad = nEdad;
-        costoCampanha = 0;
-        votos = 0;
+        name = nName;
+        lastName = nLastName;
+        politicalParty = nPoliticalParty;
+        age = nAge;
+        costCampaign = 0;
+        votes = 0;
     }
 
+    //-------------------------------------------
+    // Methods
+    //-------------------------------------------
+
     /**
-     * Devuelve el nombre del candidato.
+     * Returns the candidate's name.
      *
-     * @return nombre del candidato.
+     * @return Candidate's name.
      */
-    public String getNombre( )
+    public String getName( )
     {
-        return nombre;
+        return name;
     }
 
     /**
-     * Devuelve el apellido del candidato.
+     * Returns the candidate's last name.
      *
-     * @return apellido del candidato.
+     * @return Candidate's last name.
      */
-    public String getApellido( )
+    public String getLastName( )
     {
-        return apellido;
+        return lastName;
     }
 
     /**
-     * Devuelve el partido político del candidato.
+     * Returns the candidate's political party.
      *
-     * @return partido político del candidato.
+     * @return Candidate's political party.
      */
-    public String getPartidoPolitico( )
+    public String getPoliticalParty( )
     {
-        return partidoPolitico;
+        return politicalParty;
     }
 
     /**
-     * Devuelve la edad del candidato.
+     * Returns the candidate's age.
      *
-     * @return edad del candidato.
+     * @return Candidate's age.
      */
-    public int getEdad( )
+    public int getAge( )
     {
-        return edad;
+        return age;
     }
 
     /**
-     * Devuelve el costo de campaña del candidato.
+     * Returns the candidate's campaign cost.
      *
-     * @return costo de campaña del candidato.
+     * @return Candidate's campaign cost.
      */
-    public double getCostoCampanha( )
+    public double getCostCampaign( )
     {
-        return costoCampanha;
+        return costCampaign;
     }
 
     /**
-     * Devuelve el número de votos del candidato.
+     * Returns the candidate's number of votes.
      *
-     * @return número de votos obtenidos.
+     * @return Number of votes of the candidate.
      */
-    public int getVotos( )
+    public int getVotes( )
     {
-        return votos;
+        return votes;
     }
 
     /**
-     * Ingresa un voto al candidato.<br>
-     * <b>post: </b> Se modificó el número de votos aumentándose el existente en 1.
+     * A vote is added to the candidate.<br>
+     * <b>post: </b> The number of votes was modified by increasing the existing number by 1.
      */
-    private void ingresarUnVoto( )
+    private void addVote( )
     {
-        votos = votos + 1;
+        votes = votes + 1;
     }
 
     /**
-     * Adiciona un voto influenciado por la televisión <br<
-     * <b>post: </b> Se adiciona al costo de la campaña la suma de $1000 y se incrementa el número de votos en 1.
+     * Add a vote influenced by television.<br>
+     * <b>post: </b> Add to the cost of the campaign the sum of $1000 and increase the number of votes by 1.
      */
-    public void agregarVotoTelevision( )
+    public void addVoteTelevision( )
     {
-        costoCampanha = costoCampanha + 1000;
-        ingresarUnVoto( );
+        costCampaign = costCampaign + 1000;
+        addVote( );
     }
 
     /**
-     * Adiciona un voto influenciado por la radio <br>
-     * <b>post: </b> Se adiciona al costo de la campaña la suma de $500 y se incrementa el número de votos en 1.
+     * Add a vote influenced by radio.<br>
+     * <b>post: </b> Add $500 to the cost of the campaign and increase the number of votes by 1.
      */
-    public void agregarVotoRadio( )
+    public void addVoteRadio( )
     {
-        costoCampanha = costoCampanha + 500;
-        ingresarUnVoto( );
+        costCampaign = costCampaign + 500;
+        addVote( );
     }
 
     /**
-     * Adiciona un voto influenciado por Internet <br>
-     * <b>post: </b> Se adiciona al costo de la campaña la suma de $100 y se incrementa el número de votos en 1.
+     * Add an Internet-influenced vote.<br>
+     * <b>post: </b> Add to the cost of the campaign the sum of $100 and increase the number of votes by 1.
      */
-    public void agregarVotoInternet( )
+    public void addVoteInternet( )
     {
-        costoCampanha = costoCampanha + 100;
-        ingresarUnVoto( );
+        costCampaign = costCampaign + 100;
+        addVote( );
     }
 
     /**
-     * Se reinicia el conteo de votos <b>post: </b> votos = 0.
+     * The vote count is restarted.<br>
+     * <b>post: </b> votes = 0.
      */
-    public void reiniciarConteoVotos( )
+    public void restartVoteCount( )
     {
-        votos = 0;
+        votes = 0;
     }
 
     /**
-     * Se reinicia el costo de campaña <b>post: </b> costoCampanha = 0.
+     * The campaign cost is restarted.<br>
+     * <b>post: </b> costCampaign = 0.
      */
-    public void reiniciarCostoCampanha( )
+    public void restartCostCampaign( )
     {
-        costoCampanha = 0;
+        costCampaign = 0;
     }
 }

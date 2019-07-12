@@ -145,7 +145,7 @@ public class PanelCandidate extends JPanel implements ActionListener
         panelInformacion.setBackground( Color.WHITE );
 
         setLayout( new java.awt.BorderLayout( ) );
-        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidate.getNombre( ) ) );
+        setBorder( javax.swing.BorderFactory.createTitledBorder( "Candidato " + candidate.getName( ) ) );
         setBackground( Color.WHITE );
 
         add( panelImagen, java.awt.BorderLayout.CENTER );
@@ -188,12 +188,12 @@ public class PanelCandidate extends JPanel implements ActionListener
      */
     public void actualizar( Candidate candidate )
     {
-        etiquetaNombreCandidato.setText( "Nombre: " + candidate.getNombre( ) );
-        etiquetaApellidoCandidato.setText( "Apellido: " + candidate.getApellido( ) );
-        etiquetaEdadCandidato.setText( "Edad: " + candidate.getEdad( ) );
-        etiquetaPartidoPoliticoCandidato.setText( "Partido Político: " + String.valueOf( candidate.getPartidoPolitico( ) ) );
-        etiquetaCostoCampanhaCandidato.setText( "Costo Campaña: $" + formatearValorReal( candidate.getCostoCampanha( ) ) );
-        etiquetaNumeroVotos.setText( "Numero de Votos: " + candidate.getVotos( ) );
+        etiquetaNombreCandidato.setText( "Nombre: " + candidate.getName( ) );
+        etiquetaApellidoCandidato.setText( "Apellido: " + candidate.getLastName( ) );
+        etiquetaEdadCandidato.setText( "Edad: " + candidate.getAge( ) );
+        etiquetaPartidoPoliticoCandidato.setText( "Partido Político: " + String.valueOf( candidate.getPoliticalParty( ) ) );
+        etiquetaCostoCampanhaCandidato.setText( "Costo Campaña: $" + formatearValorReal( candidate.getCostCampaign( ) ) );
+        etiquetaNumeroVotos.setText( "Numero de Votos: " + candidate.getVotes( ) );
 
         if ( principal.darTotalVotosUrna( ) == 0 )
         { botonDarPorcentajeVotos.setEnabled( false ); }
