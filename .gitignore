@@ -1,29 +1,12 @@
-# Archivos generados por Intellij
+### JetBrains
+# Directories
 .idea/
-
-# Archivos de compilacion java
 out/
-
-# Archivos varios
+# Configuration Files
 N1-Elecciones-Java.iml
 
-# Archivos de log
-*.log
-
-# Archivos generados por BlueJ
-*.ctxt
-
-# Archivos generados por Mobile Tools for Java (J2ME)
-.mtj.tmp/
-
-# Paquetes de archivos generados
-*.jar
-*.war
-*.ear
-*.zip
-*.targ.gz
-*.rar
-
-# Archivos necesarios para compilar el Test
-!/test/lib/
-!/test/lib/junit-4.12.jar
+### Gradle
+# Directories
+.gradle/
+build/
+# Configuration Files

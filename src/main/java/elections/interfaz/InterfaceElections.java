@@ -1,4 +1,4 @@
-package edu.usc.elecciones.interfaz;
+package elections.interfaz;
 
 import java.awt.*;
 import java.text.DecimalFormat;
@@ -6,8 +6,8 @@ import java.text.NumberFormat;
 
 import javax.swing.*;
 
-import edu.usc.elecciones.mundo.Candidate;
-import edu.usc.elecciones.mundo.Urn;
+import elections.mundo.Candidate;
+import elections.mundo.Urn;
 
 @SuppressWarnings( "serial" )
 public class InterfaceElections extends JFrame

@@ -1,4 +1,4 @@
-package edu.usc.elecciones.interfaz;
+package elections.interfaz;
 
 import java.awt.BorderLayout;
 import java.awt.Color;

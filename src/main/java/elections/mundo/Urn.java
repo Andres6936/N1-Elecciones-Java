@@ -1,4 +1,4 @@
-package edu.usc.elecciones.mundo;
+package elections.mundo;
 
 /**
  * It's a voting box with three candidates.
