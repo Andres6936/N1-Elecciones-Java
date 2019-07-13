@@ -195,7 +195,7 @@ public class PanelCandidate extends JPanel implements ActionListener
         etiquetaCostoCampanhaCandidato.setText( "Costo Campaña: $" + formatearValorReal( candidate.getCostCampaign( ) ) );
         etiquetaNumeroVotos.setText( "Numero de Votos: " + candidate.getVotes( ) );
 
-        if ( principal.darTotalVotosUrna( ) == 0 )
+        if ( principal.getTotalVotesUrn( ) == 0 )
         { botonDarPorcentajeVotos.setEnabled( false ); }
         else
         { botonDarPorcentajeVotos.setEnabled( true ); }
@@ -211,11 +211,11 @@ public class PanelCandidate extends JPanel implements ActionListener
     {
         if ( VOTAR.equals( e.getActionCommand( ) ) )
         {
-            principal.adicionarVotoCandidato( candidate );
+            principal.addVoteCandidate( candidate );
         }
         else if ( PORCENTAJE_VOTOS.equals( e.getActionCommand( ) ) )
         {
-            principal.mostrarDialogoPorcentajeVotos( candidate );
+            principal.showDialogPercentageVotes( candidate );
         }
 
     }

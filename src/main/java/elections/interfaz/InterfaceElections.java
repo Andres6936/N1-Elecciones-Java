@@ -1,10 +1,17 @@
 package elections.interfaz;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.GridLayout;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 
-import javax.swing.*;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
+import javax.swing.WindowConstants;
 
 import elections.mundo.Candidate;
 import elections.mundo.Urn;
@@ -13,61 +20,49 @@ import elections.mundo.Urn;
 public class InterfaceElections extends JFrame
 {
     // -----------------------------------------------------------------
-    // Atributos
+    // Fields
     // -----------------------------------------------------------------
 
     /**
-     * Clase principal del mundo
+     * World's leading class
      */
     private Urn urn;
 
     // -----------------------------------------------------------------
-    // Atributos de la interfaz
+    // Attributes of the interface
     // -----------------------------------------------------------------
 
     /**
-     * Panel con la imagen
+     * Candidate Panel Frank.
      */
-    private PanelImage panelImage;
+    private PanelCandidate panelFrank;
 
     /**
-     * Panel del candidato 1.
+     * Candidate Panel Claire.
      */
-    private PanelCandidate panelCandidate1;
+    private PanelCandidate panelClaire;
 
     /**
-     * Panel del candidato 2.
+     * Candidate Panel Barack.
      */
-    private PanelCandidate panelCandidate2;
+    private PanelCandidate panelBarack;
 
     /**
-     * Panel del candidato 3.
-     */
-    private PanelCandidate panelCandidate3;
-
-    /**
-     * Panel con los totales de la urna.
+     * Panel with the totals of the urn.
      */
     private PanelUrn panelUrn;
 
-    /**
-     * Panel con las extensiones
-     */
-    private PanelExtension panelExtension;
-
     // -----------------------------------------------------------------
-    // Constructores
+    // Constructs
     // -----------------------------------------------------------------
 
     /**
-     * Constructor donde se arma la interfaz.
+     * Construct where the interface is assembled.
      */
     private InterfaceElections( )
     {
-        // Crea la clase principal
         urn = new Urn( );
 
-        // Construye la forma
         setTitle( "Elecciones Usaca" );
         getContentPane( ).setLayout( new BorderLayout( ) );
         setSize( 800, 600 );
@@ -86,13 +81,13 @@ public class InterfaceElections extends JFrame
             e.printStackTrace( );
         }
 
-        // Creación de los paneles aquí
+        // Creation of the panels here
 
-        // Panel imagen
-        panelImage = new PanelImage( );
+        // Panel with the image
+        PanelImage panelImage = new PanelImage( );
         getContentPane( ).add( panelImage, BorderLayout.NORTH );
 
-        // Construye el panel con los tres candidatos
+        // Build the panel with the three candidates
 
         JPanel panelCandidatos = new JPanel( );
         panelCandidatos.setLayout( new GridLayout( 1, 3 ) );
@@ -102,23 +97,25 @@ public class InterfaceElections extends JFrame
         ImageIcon imageClaire = new ImageIcon( "data/Claire.jpg" );
         ImageIcon imageObama = new ImageIcon( "data/Obama.jpg" );
 
-        panelCandidate1 = new PanelCandidate( this, urn.getFrank( ), imageFrancis );
-        panelCandidatos.add( panelCandidate1 );
-        panelCandidate2 = new PanelCandidate( this, urn.getClaire( ), imageClaire );
-        panelCandidatos.add( panelCandidate2 );
-        panelCandidate3 = new PanelCandidate( this, urn.getBarack( ), imageObama );
-        panelCandidatos.add( panelCandidate3 );
+        panelFrank = new PanelCandidate( this, urn.getFrank( ), imageFrancis );
+        panelCandidatos.add( panelFrank );
+        panelClaire = new PanelCandidate( this, urn.getClaire( ), imageClaire );
+        panelCandidatos.add( panelClaire );
+        panelBarack = new PanelCandidate( this, urn.getBarack( ), imageObama );
+        panelCandidatos.add( panelBarack );
 
         JPanel panelInferior = new JPanel( );
         panelInferior.setLayout( new BorderLayout( ) );
         getContentPane( ).add( panelInferior, BorderLayout.SOUTH );
         panelUrn = new PanelUrn( );
         panelInferior.add( panelUrn, BorderLayout.CENTER );
-        panelExtension = new PanelExtension( this );
+
+        // Panel with extensions
+        PanelExtension panelExtension = new PanelExtension( this );
         panelInferior.add( panelExtension, BorderLayout.SOUTH );
         setLocationRelativeTo( null );
 
-        actualizar( );
+        update( );
     }
 
     // -----------------------------------------------------------------
@@ -126,16 +123,18 @@ public class InterfaceElections extends JFrame
     // -----------------------------------------------------------------
 
     /**
-     * Adiciona un voto a un candidato dependiendo del medio que más
-     * influenció el voto.
+     * Adds a vote to a candidate depending on the medium that most influenced the vote.
      *
-     * @param candidate Candidato a adicionar el voto
+     * @param candidate Candidate to add the vote
      */
-    public void adicionarVotoCandidato( Candidate candidate )
+    public void addVoteCandidate( Candidate candidate )
     {
 
         Object[] possibilities = { "Televisión", "Radio", "Internet" };
-        String influencia = ( String ) JOptionPane.showInputDialog( this, "¿Que medio influenció mas en usted para votar por este candidato?", "Influencia", JOptionPane.QUESTION_MESSAGE, null, possibilities, "Televisión" );
+        String influencia = ( String ) JOptionPane.showInputDialog( this,
+                                                                    "¿Que medio influenció mas en usted para votar por este candidato?",
+                                                                    "Influencia", JOptionPane.QUESTION_MESSAGE,
+                                                                    null, possibilities, "Televisión" );
 
         if ( influencia != null )
         {
@@ -152,59 +151,66 @@ public class InterfaceElections extends JFrame
                 urn.addVoteInternet( candidate );
             }
         }
-        actualizar( );
+        update( );
 
     }
 
     /**
-     * Restaura la urna
+     * Clear the Urn.
      */
-    public void vaciarUrna( )
+    public void clearUrn( )
     {
         urn.clearUrn( );
-        actualizar( );
+        update( );
 
     }
 
     /**
-     * Se informa el porcentaje de votos de un candidato dado.
+     * The percentage of votes of a given candidate is reported.
      *
-     * @param candidate Candidato del cual se va a mostrar el porcentaje de votos
+     * @param candidate Candidate whose percentage of votes will be shown.
      */
-    public void mostrarDialogoPorcentajeVotos( Candidate candidate )
+    public void showDialogPercentageVotes( Candidate candidate )
     {
-        JOptionPane.showMessageDialog( this, "Porcentaje de votos: " + formatearValorReal( urn.calculatePercentageVotes( candidate ) ) + " %", "Candidato " + candidate.getName( ), JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this,
+                                       "Porcentaje de votos: " +
+                                               formatRealNumerical( urn.calculatePercentageVotes( candidate ) ) +
+                                               " %", "Candidato " +
+                                               candidate.getName( ), JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**
-     * Total de votos de la urna
+     * Total votes of the urn.
      *
-     * @return El total de votos que contiene la urna
+     * @return The total number of votes contained in the urn.
      */
-    public int darTotalVotosUrna( )
+    public int getTotalVotesUrn( )
     {
         return urn.calculateTotalVotes( );
     }
+
     // -----------------------------------------------------------------
-    // Puntos de Extensión
+    // Extension Point
     // -----------------------------------------------------------------
 
     /**
-     * Método para la extensión 1
+     * Method for Extension 1
      */
-    public void reqFuncOpcion1( )
+    public void reqFuncOption1( )
     {
         String resultado = urn.method1( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, resultado,
+                                       "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
     /**
-     * Método para la extensión 2
+     * Method for Extension 2
      */
-    public void reqFuncOpcion2( )
+    public void reqFuncOption2( )
     {
         String resultado = urn.method2( );
-        JOptionPane.showMessageDialog( this, resultado, "Respuesta", JOptionPane.INFORMATION_MESSAGE );
+        JOptionPane.showMessageDialog( this, resultado,
+                                       "Respuesta", JOptionPane.INFORMATION_MESSAGE );
     }
 
     // -----------------------------------------------------------------
@@ -212,7 +218,7 @@ public class InterfaceElections extends JFrame
     // -----------------------------------------------------------------
 
     /**
-     * Este método ejecuta la aplicación, creando una nueva interfaz
+     * This method executes the application, creating a new interface.
      *
      * @param args Application arguments.
      */
@@ -223,24 +229,24 @@ public class InterfaceElections extends JFrame
     }
 
     /**
-     * Actualiza la visualización de la interfaz <br>
-     * <b>post: </b> Se actualiza la visualización
+     * Updates the interface display.<br>
+     * <b>post: </b> The display is updated.
      */
-    private void actualizar( )
+    private void update( )
     {
-        panelCandidate1.actualizar( urn.getFrank( ) );
-        panelCandidate2.actualizar( urn.getClaire( ) );
-        panelCandidate3.actualizar( urn.getBarack( ) );
+        panelFrank.actualizar( urn.getFrank( ) );
+        panelClaire.actualizar( urn.getClaire( ) );
+        panelBarack.actualizar( urn.getBarack( ) );
         panelUrn.actualizar( urn );
     }
 
     /**
-     * Formatea un valor numérico real para presentar en la interfaz <br>
+     * Format a real numeric value to present in the interface.<br>
      *
-     * @param valor El valor numérico a ser formateado
-     * @return Cadena con el valor formateado con puntos y signos.
+     * @param valor The numerical value to be formatted.
+     * @return String with value formatted with dots and signs.
      */
-    private String formatearValorReal( double valor )
+    private String formatRealNumerical( double valor )
     {
         DecimalFormat df = ( DecimalFormat ) NumberFormat.getInstance( );
         df.applyPattern( " ###,###.##" );

@@ -116,16 +116,16 @@ public class PanelExtension extends JPanel implements ActionListener
     {
         if ( OPCION_1.equals( e.getActionCommand( ) ) )
         {
-            principal.reqFuncOpcion1( );
+            principal.reqFuncOption1( );
         }
         else if ( OPCION_2.equals( e.getActionCommand( ) ) )
         {
-            principal.reqFuncOpcion2( );
+            principal.reqFuncOption2( );
         }
         else if ( VACIAR_URNA.equals( e.getActionCommand( ) ) )
         {
 
-            principal.vaciarUrna( );
+            principal.clearUrn( );
         }
     }
 }
